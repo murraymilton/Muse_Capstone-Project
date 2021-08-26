@@ -2,8 +2,8 @@ import React from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import HeaderNav from "./components/HeaderNav";
-import PrivateRoute from "./components/PrivateRoute";
+import HeaderNav from "./components/Navigation/HeaderNav";
+import PrivateRoute from "./components/Navigation/PrivateRoute";
 //COmponents
 import Home from "./Event/Home";
 import Login from "./Auth/Login";

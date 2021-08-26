@@ -1,10 +1,10 @@
-import DashboardView from "../components/DashboardView";
+import DashboardView from "../components/Navigation/DashboardView";
 
 const DashboardSeller = () => {
   return (
     <>
       <div className="container-fluid  p-5">
-        <h1>Dashboard</h1>
+        <h1>Seller View</h1>
       </div>
 
       <div className="container-fluid p-4">
@@ -12,7 +12,7 @@ const DashboardSeller = () => {
       </div>
 
       <div className="container">
-        <p>Show All Venues and Locations</p>
+        <p>All Your Events and Schedules</p>
       </div>
     </>
   );

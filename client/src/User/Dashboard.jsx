@@ -1,4 +1,4 @@
-import DashboardView from "../components/DashboardView";
+import DashboardView from "../components/Navigation/DashboardView";
 
 const Dashboard = () => {
     return (
@@ -12,7 +12,7 @@ const Dashboard = () => {
         </div>
   
         <div className="container">
-          <p>Show all bookings and a button to browse hotels</p>
+          <p>Show All Venues and Locations</p>
         </div>
       </>
     );
