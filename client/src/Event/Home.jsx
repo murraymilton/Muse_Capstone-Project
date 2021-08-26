@@ -8,7 +8,7 @@ const Home = () => {
     const {user} = useSelector((state) => ({...state}))  
     return (
         <div className="container-fluid h1 p-5 text-center">
-            Home Component {JSON.stringify(user)} 
+            Landing Home Page {JSON.stringify(user)} 
             <div className='home'>
 
             <div className='home__section'>
