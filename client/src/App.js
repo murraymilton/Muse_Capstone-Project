@@ -10,6 +10,7 @@ import Login from "./Auth/Login";
 import Register from "./Auth/Register";
 import Dashboard from "./User/Dashboard";
 import DashboardSeller from "./User/DashboardSellers";
+import NewVenue from "./components/Posts/NewVenue";
 
 const App = () => {
   return (
@@ -26,6 +27,7 @@ const App = () => {
           path="/dashboard/seller"
           component={DashboardSeller}
         />
+        <PrivateRoute exact path="/venues/new" component={NewVenue} />
       </Switch>
     </BrowserRouter>
   );

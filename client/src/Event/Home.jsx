@@ -1,15 +1,13 @@
 import React from 'react'
-import { useSelector } from 'react-redux';
 import './Home.css';
 import Card from '../components/Card/Card';
 
 
 //We are taking in function and returning our state
 const Home = () => {
-    const {user} = useSelector((state) => ({...state}))  
     return (
         <div className="container-fluid h1 p-5 text-center">
-            Landing Home Page {JSON.stringify(user)} 
+            Landing Home Page 
             <div className='home'>
 
             <div className='home__section'>
