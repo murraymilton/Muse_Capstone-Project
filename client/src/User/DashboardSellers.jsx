@@ -12,7 +12,7 @@ const DashboardSeller = () => {
       </div>
 
       <div className="container">
-        <p>Show all hotels user have posted and a button to add new</p>
+        <p>Show All Venues and Locations</p>
       </div>
     </>
   );

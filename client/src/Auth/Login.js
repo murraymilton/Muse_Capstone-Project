@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { toast } from "react-toastify";
 import { login } from "../Actions/auth";
-import LoginForm from "../components/LoginForm";
+import LoginForm from "../components/Forms/LoginForm";
 import { useDispatch } from "react-redux";
 
 const Login = ({ history }) => {
