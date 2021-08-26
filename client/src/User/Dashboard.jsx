@@ -1,10 +1,13 @@
 import DashboardView from "../components/Navigation/DashboardView";
+import PaymentNav from "../components/Navigation/PaymentNav";
+
+
 
 const Dashboard = () => {
     return (
       <>
         <div className="container-fluid  p-5">
-          <h1>Dashboard</h1>
+          <PaymentNav/>
         </div>
   
         <div className="container-fluid p-4">
