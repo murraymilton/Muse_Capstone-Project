@@ -17,11 +17,11 @@ function Banner() {
                 </Button>
             </div>
             <div className='banner__info'>
-                <h1>Get out and stretch your imagination</h1>
+                <h1>Find Your Next You</h1>
                 <h5>
-                    Plan a different kind of getaway to uncover the hidden gems near you.
+                    Plan a different kind of getaway.
                 </h5>
-                <Button onClick={() => history.push('/search')} variant='outlined'>Explore Nearby</Button>
+                <Button onClick={() => history.push('/search')} variant='outlined'>Explore Oppurtunities</Button>
             </div>
         </div>
     )
