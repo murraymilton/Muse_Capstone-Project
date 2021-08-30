@@ -4,7 +4,7 @@ import PaymentNav from "../components/Navigation/PaymentNav";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import {HomeOutlined} from "@ant-design/icons"
-import accountCreate from "../Actions/paymentAuth";
+import {createConnectAccount} from "../Actions/stripe"
 import {toast} from "react-toastify"
 
 
@@ -13,14 +13,15 @@ const DashboardSeller = () => {
   const [loading, setLoading] = useState(false);
 
 
-  const handleclick = async () => {
+  const handleClick = async () => {
     setLoading(true);
-    try{
-      let res = await accountCreate(auth.token)
-      console.log(res)
-    }catch(error){
-      console.log(error)
-      toast.error("There was a problem creating your accountL Try again later");
+    try {
+      let res = await createConnectAccount(auth.token);
+      console.log(res); // get login link
+      window.location.href = res.data;
+    } catch (err) {
+      console.log(err);
+      toast.error("Registration Could Not Be Completed, Try again.");
       setLoading(false);
     }
   };
@@ -43,10 +44,16 @@ const notConnected = () => (
           <div className="row">
             <div className="col-md-6 offset-md-3 text-center">
               <HomeOutlined className="h1"/>
-              <h4>Add Payment Method To Post Your Events and Venues</h4>
-              <p className="lead">MERN parterns with stripe to transfer</p>
-              <button disabled={loading} onClick={handleclick}className="btn btn-primary mb-3">{loading ? "Loading...." : "Process Balances"} Setup Payment Information</button>
-              <p className="text-muted"><small>You will be redirected upon completion of registration</small></p>
+              <h4>Register To Add Events</h4>
+              <p className="lead"></p>
+              <button
+              disabled={loading}
+              onClick={handleClick}
+              className="btn btn-primary mb-3"
+            >
+              {loading ? "Processing..." : "Register"}
+            </button>
+              <p className="text-muted"><small>Add Your Venues Today</small></p>
             </div>
           </div>
         </div>
@@ -64,7 +71,7 @@ const notConnected = () => (
       {auth && auth.user && auth.user.stripe_seller && 
       auth.user.stripe_seller.charges_enabled ? connected() : notConnected()}
 
-      <pre>{JSON.stringify(auth,null, 4)}</pre>
+      <pre>{JSON.stringify(auth,null, 4)}</pre> 
     </>
   );
 };

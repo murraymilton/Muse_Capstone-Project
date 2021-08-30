@@ -5,12 +5,13 @@ import "react-toastify/dist/ReactToastify.css";
 import HeaderNav from "./components/Navigation/HeaderNav";
 import PrivateRoute from "./components/Navigation/PrivateRoute";
 //COmponents
-import Home from "./Event/Home";
+import Home from "./LandingPage/Home";
 import Login from "./Auth/Login";
 import Register from "./Auth/Register";
 import Dashboard from "./User/Dashboard";
 import DashboardSeller from "./User/DashboardSellers";
-import NewVenue from "./components/Posts/NewVenue";
+import SearchEvents from "./components/SearchPage/SearchEvents";
+import StripeCallback from "./Stripe/StripeCallback";
 
 const App = () => {
   return (
@@ -21,13 +22,19 @@ const App = () => {
         <Route exact path="/" component={Home} />
         <Route exact path="/login" component={Login} />
         <Route exact path="/register" component={Register} />
+        <Route exact path="/searchevents" component={SearchEvents} />
         <PrivateRoute exact path="/dashboard" component={Dashboard} />
         <PrivateRoute
           exact
           path="/dashboard/seller"
           component={DashboardSeller}
         />
-        <PrivateRoute exact path="/venues/new" component={NewVenue} />
+        {/* <PrivateRoute exact path="/venues/new" component={NewVenue} /> */}
+        <PrivateRoute
+          exact
+          path="/stripe/callback"
+          component={StripeCallback}
+        />
       </Switch>
     </BrowserRouter>
   );

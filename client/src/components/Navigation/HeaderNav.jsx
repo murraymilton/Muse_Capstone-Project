@@ -42,6 +42,7 @@ const HeaderNav = () => {
             <Link className="nav-link" to="/register">
               Register
             </Link>
+            <Link className="nav-link" to="/searchevents">Search Events</Link>
           </>
         )}
       </div>

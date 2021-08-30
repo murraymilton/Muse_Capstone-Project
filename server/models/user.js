@@ -32,9 +32,9 @@ const userSchema = new Schema(
       min: 7,
       max: 50,
     },
-    strip_account_id: "",
+    stripe_account_id: "",
     stripe_seller: {},
-    stripSession: {},
+    stripeSession: {},
   },
   { timestamps: true }
 );

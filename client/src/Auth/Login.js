@@ -16,9 +16,7 @@ const Login = ({ history }) => {
     try {
       let res = await login({ email, password });
       if (res.data) {
-        console.log(
-          "SAVE USER RES IN REDUX AND LOCAL STORAGE THEN REDIRECT =====> "
-        );
+        console.log("REDIRECT ");
         console.log(res.data);
         window.localStorage.setItem("auth", JSON.stringify(res.data));
 
