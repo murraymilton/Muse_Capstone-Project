@@ -33,8 +33,8 @@ const Login = ({ history }) => {
   };
   return (
     <>
-      <div className="container-fluid p-5 text-center">
-        <h1>Login</h1>
+      <div className=" p-5 text-center">
+        <h1 class="h3 mb-3 font-weight-normal">Sign In</h1>
       </div>
 
       <div className="container">

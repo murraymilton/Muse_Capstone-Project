@@ -1,4 +1,5 @@
 import React from 'react'
+import  './HeaderNav.module.css'
 import { Link } from 'react-router-dom'
 import { useSelector, useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
@@ -18,7 +19,7 @@ const HeaderNav = () => {
       };
   
     return (
-        <div className="nav justify-content-center">
+        <div className="navbar navbar-customclass navbar-expand-sm navbar-dark sticky-top d-flex justify-content-center">
         <Link className="nav-link" to="/">
           Home
         </Link>

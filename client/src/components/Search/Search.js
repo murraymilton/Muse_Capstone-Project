@@ -27,7 +27,7 @@ function Search() {
       <DateRangePicker ranges={[selectionRange]} onChange={handleSelect} />
       <h2> Item</h2>
       {/* <input min={0} defaultValue={2} type="number" /> */}
-      <Button onClick={() => history.push("/search")}>Search Muse</Button>
+      <Button onClick={() => history.push("/searchevents")}>Search Muse</Button>
     </div>
   );
 }

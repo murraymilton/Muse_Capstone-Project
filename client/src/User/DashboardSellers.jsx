@@ -27,7 +27,7 @@ const DashboardSeller = () => {
   };
 
   const connected = () =>  (
-    <div className="container-fluid">
+    <div className="container-fluid bg-primary">
           <div className="row">
             <div className="col-md-10">
               <h2>Your Events</h2>
@@ -71,7 +71,7 @@ const notConnected = () => (
       {auth && auth.user && auth.user.stripe_seller && 
       auth.user.stripe_seller.charges_enabled ? connected() : notConnected()}
 
-      <pre>{JSON.stringify(auth,null, 4)}</pre> 
+      {/* <pre>{JSON.stringify(auth,null, 4)}</pre>  */}
     </>
   );
 };

@@ -1,3 +1,4 @@
+
 const RegisterForm = ({
     handleSubmit, 
     firstname, 
@@ -9,8 +10,24 @@ const RegisterForm = ({
     email, 
     setEmail,
     password,
-    setPassword}) =>(
+    setPassword,
+    role,
+    setRole}) =>(
     <form onSubmit={handleSubmit} className="mt-3">
+   <div className="form-group mb-3">
+      <label className="my-1 mr-2">User Role</label>
+      <select
+        type="User Role"
+        className="form-control"
+        placeholder="User Role"
+        value={role}
+        onChange={(event) => setRole(event.target.value)}
+      >
+      <option selected>Choose</option>
+      <option value="1">Buyer</option>
+      <option value="2">Seller</option>
+      </select>
+    </div>
     <div className="form-group mb-3">
       <label className="form-label">First Name</label>
       <input
@@ -62,6 +79,7 @@ const RegisterForm = ({
         onChange={(event) => setPassword(event.target.value)}
       />
     </div>
+    
     <button  disabled={!username || !email || !password} className="btn btn-primary">Submit</button>
   </form>
 );

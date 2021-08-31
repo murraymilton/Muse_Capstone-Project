@@ -1,10 +1,14 @@
+import './LoginForm.css'
+
 const LoginForm = ({
     handleSubmit, 
     email, 
     setEmail,
     password,
     setPassword}) =>(
-    <form onSubmit={handleSubmit} className="mt-3">
+ <body className="text-center">
+    <form onSubmit={handleSubmit} className="form-signin">
+      
     <div className="form-group mb-3">
       <label className="form-label">Email</label>
       <input
@@ -28,6 +32,7 @@ const LoginForm = ({
     </div>
     <button disabled={!email || !password} className="btn btn-primary">Submit</button>
   </form>
+</body>
 );
 
 export default LoginForm;

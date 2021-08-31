@@ -32,6 +32,11 @@ const userSchema = new Schema(
       min: 7,
       max: 50,
     },
+    role: {
+      type: String,
+      trim: true,
+      required: "This field is required",
+    },
     stripe_account_id: "",
     stripe_seller: {},
     stripeSession: {},

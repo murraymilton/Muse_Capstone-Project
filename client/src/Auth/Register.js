@@ -10,6 +10,7 @@ const Register = ({ history }) => {
   const [username, setUserName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [role, setRole] = useState("");
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -21,6 +22,7 @@ const Register = ({ history }) => {
         username,
         email,
         password,
+        role,
       });
       console.log("REGISTER USER ===> ", res);
       toast.success("Register success. Please login.");
@@ -33,7 +35,7 @@ const Register = ({ history }) => {
 
   return (
     <>
-      <div className="container-fluid bg-primary p-5 text-center">
+      <div className="container-fluid bg-purple p-5 text-center">
         <h1>Register For Account</h1>
       </div>
 
@@ -52,6 +54,8 @@ const Register = ({ history }) => {
               setEmail={setEmail}
               password={password}
               setPassword={setPassword}
+              role={role}
+              setRole={setRole}
             />
           </div>
         </div>
