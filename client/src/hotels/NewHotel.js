@@ -1,20 +1,10 @@
 import { useState } from "react";
 import { toast } from "react-toastify";
-import AlgoliaPlaces from "algolia-places-react";
+import ReactGoogleAutocomplete from "react-google-autocomplete";
+import { DatePicker, Select } from "antd";
+import moment from "moment";
 
-const config = {
-  appId: process.env.REACT_APP_ALGOLIA_APP_ID,
-  apiKey: process.env.REACT_APP_ALGOLIA_API_KEY,
-  language: "en",
-  contries: [
-    "Japan",
-    "Russia",
-    "Germany",
-    "Finland",
-    "Canada",
-    "United States",
-  ],
-};
+const config = process.env.REACT_APP_GOOGLEPLACES_API_KEY;
 
 const NewHotel = () => {
   // We are going to take the state and destructure it for easier usage
@@ -32,7 +22,8 @@ const NewHotel = () => {
     "https://source.unsplash.com/user/erondu?text=PREVIEW"
   );
   // Here we want to destructure our state being passed in.
-  const { title, content, location, image, price, from, to, bed } = values;
+  const { title, content, location, image, price, place, from, to, bed } =
+    values;
   const handleSubmit = (e) => {
     //
   };
@@ -46,6 +37,7 @@ const NewHotel = () => {
   const handleChange = (e) => {
     setValues({ ...values, [e.target.name]: e.target.value });
   };
+
   //Here we are accepting the upload for photos, will use the accept to only allow images
   const hotelForm = () => (
     <form onSubmit={handleSubmit}>
@@ -76,14 +68,15 @@ const NewHotel = () => {
           className="form-control m-2"
           value={content}
         />
-        <AlgoliaPlaces
-          className="form-control ml-2 mr-2"
-          placeholder="location"
-          defaultValue={location}
-          options={config}
-          onChange={({ suggestion }) =>
-            setValues({ ...values, location: suggestion.value })
-          }
+        {/* Will working debugging further */}
+        <ReactGoogleAutocomplete
+          className="form-control m-2"
+          placeholder="Location"
+          defaultValue={place}
+          apiKey={config}
+          onPlaceSelected={(place) => {
+            setValues(place.formatted_value);
+          }}
           style={{ height: "50px" }}
         />
         <input
@@ -103,10 +96,29 @@ const NewHotel = () => {
           value={bed}
         />
       </div>
-      ;
+      <DatePicker
+        placeholder="From date"
+        className="form-control m-2"
+        onChange={(date, dateString) =>
+          setValues({ ...values, from: dateString })
+        }
+        disabledDate={(current) =>
+          current && current.valueOf() < moment().subtract(1, "days")
+        }
+      />
+      <DatePicker
+        placeholder="To date"
+        className="form-control m-2"
+        onChange={(date, dateString) =>
+          setValues({ ...values, to: dateString })
+        }
+        disabledDate={(current) =>
+          current && current.valueOf() < moment().subtract(1, "days")
+        }
+      />
+      <button className="btn btn-outline primary m-2">Send to database</button>;
     </form>
   );
-  <button className="btn btn-outline primary m-2">Send to database</button>;
   return (
     <>
       <div className="container-fluid bg-secondary p-5 text-center">
