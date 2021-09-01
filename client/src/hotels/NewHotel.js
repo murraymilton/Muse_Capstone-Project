@@ -25,8 +25,10 @@ const NewHotel = () => {
   const [preview, setPreview] = useState(
     "https://source.unsplash.com/user/erondu?text=PREVIEW"
   );
+
+  const [location, setLocation] = useState("");
   // Here we want to destructure our state being passed in.
-  const { title, content, location, image, price, from, to, bed } = values;
+  const { title, content, image, price, from, to, bed } = values;
   const handleSubmit = (e) => {};
 
   const handleImageChange = (e) => {
@@ -58,9 +60,9 @@ const NewHotel = () => {
           type="text"
           name="title"
           onChange={handleChange}
-          placeholder="Title"
+          placeholder="Hotel Name"
           className="form-control m-2"
-          value={values?.title}
+          value={title}
         />
         <textarea
           name="content"
@@ -76,7 +78,7 @@ const NewHotel = () => {
           defaultValue={location}
           apiKey={config}
           onPlaceSelected={(place) => {
-            setValues(place.formatted_value);
+            setLocation(place.formatted_value);
           }}
           style={{ height: "50px" }}
         />
@@ -118,6 +120,7 @@ const NewHotel = () => {
           current && current.valueOf() < moment().subtract(1, "days")
         }
       />
+
       <DatePicker
         placeholder="To date"
         className="form-control m-2"
@@ -128,7 +131,8 @@ const NewHotel = () => {
           current && current.valueOf() < moment().subtract(1, "days")
         }
       />
-      <button className="btn btn-outline primary m-2">Send to database</button>;
+
+      <button className="btn btn-outline-primary m-2">Save</button>
     </form>
   );
   return (
@@ -148,7 +152,10 @@ const NewHotel = () => {
               alt="preview_image"
               className="img img-fluid m-2"
             />
-            Image<pre>{JSON.stringify(values, null, 4)}</pre>
+            {/* Using to display customer log to display */}
+            <h3>Hotel Description</h3>
+            <pre>{JSON.stringify(values, null, 4)}</pre>
+            {JSON.stringify(location)}
           </div>
         </div>
       </div>
