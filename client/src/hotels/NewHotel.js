@@ -32,51 +32,55 @@ const NewHotel = () => {
     setValues({ ...values, [e.target.name]: e.target.value });
   };
   //Here we are accepting the upload for photos, will use the accept to only allow images
-  const hotelForm = () => <form onSubmit={handleSubmit}></form>;
-  <div className="form-group">
-    <label className="btn btn-outline-secondary btn-block m-2 text-left">
-      Image
-      <input
-        type="file"
-        name="image"
-        onChange={handleImageChange}
-        accept="image/*"
-        value={image}
-        hidden
-      />
-    </label>
-    <input
-      type="text"
-      name="title"
-      onChange={handleChange}
-      placeholder="Title"
-      className="form-control m-2"
-      value={title}
-    />
-    <textarea
-      name="content"
-      onChange={handleChange}
-      placeholder="Description"
-      className="form-control m-2"
-      value={content}
-    />
-    <input
-      type="number"
-      name="price"
-      onChange={handleChange}
-      placeholder="Price"
-      className="form-control m-2"
-      value={price}
-    />
-    <input
-      type="number"
-      name="bed"
-      onChange={handleChange}
-      placeholder="Number of Beds"
-      className="form-control m-2"
-      value={bed}
-    />
-  </div>;
+  const hotelForm = () => (
+    <form onSubmit={handleSubmit}>
+      <div className="form-group">
+        <label className="btn btn-outline-secondary btn-block m-2 text-left">
+          Image
+          <input
+            type="file"
+            name="image"
+            onChange={handleImageChange}
+            accept="image/*"
+            value={image}
+            hidden
+          />
+        </label>
+        <input
+          type="text"
+          name="title"
+          onChange={handleChange}
+          placeholder="Title"
+          className="form-control m-2"
+          value={title}
+        />
+        <textarea
+          name="content"
+          onChange={handleChange}
+          placeholder="Description"
+          className="form-control m-2"
+          value={content}
+        />
+        <input
+          type="number"
+          name="price"
+          onChange={handleChange}
+          placeholder="Price"
+          className="form-control m-2"
+          value={price}
+        />
+        <input
+          type="number"
+          name="bed"
+          onChange={handleChange}
+          placeholder="Number of Beds"
+          className="form-control m-2"
+          value={bed}
+        />
+      </div>
+      ;
+    </form>
+  );
   <button className="btn btn-outline primary m-2">Send to database</button>;
   return (
     <>
