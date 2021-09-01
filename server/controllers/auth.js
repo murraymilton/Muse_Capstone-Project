@@ -48,7 +48,7 @@ export const login = async (req, res) => {
       if (!match || error) return res.status(400).send("Incorrect Password");
       // console.log("HASHTOKEN:THEN RETURN TO ENDUSER");
       let token = jwt.sign({ _id: user._id }, process.env.JWT_SECRET, {
-        expiresIn: "10d",
+        expiresIn: "7d",
       });
       res.json({
         token,

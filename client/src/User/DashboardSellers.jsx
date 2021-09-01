@@ -18,7 +18,7 @@ const DashboardSeller = () => {
     try {
       let res = await createConnectAccount(auth.token);
       console.log(res); // get login link
-      window.location.href = res.data;
+      // window.location.href = res.data;
     } catch (err) {
       console.log(err);
       toast.error("Registration Could Not Be Completed, Try again.");
@@ -44,7 +44,7 @@ const notConnected = () => (
           <div className="row">
             <div className="col-md-6 offset-md-3 text-center">
               <HomeOutlined className="h1"/>
-              <h4>Register To Add Events</h4>
+              <h4>Register To Add Events/ Hotels</h4>
               <p className="lead"></p>
               <button
               disabled={loading}
@@ -71,7 +71,7 @@ const notConnected = () => (
       {auth && auth.user && auth.user.stripe_seller && 
       auth.user.stripe_seller.charges_enabled ? connected() : notConnected()}
 
-      {/* <pre>{JSON.stringify(auth,null, 4)}</pre>  */}
+      <pre>{JSON.stringify(auth,null, 4)}</pre> 
     </>
   );
 };

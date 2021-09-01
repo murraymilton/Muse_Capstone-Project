@@ -14,7 +14,7 @@ const StripeCallback = ({ history }) => {
   const accountStatus = async () => {
     try {
       const res = await getAccountStatus(auth.token);
-      console.log("USER ACCOUNT STATUS ON STRIPE CALLBACK", res);
+      console.log("Account Status", res);
     } catch (err) {
       console.log(err);
     }

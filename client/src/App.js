@@ -5,6 +5,7 @@ import "react-toastify/dist/ReactToastify.css";
 import HeaderNav from "./components/Navigation/HeaderNav";
 import PrivateRoute from "./components/Navigation/PrivateRoute";
 //COmponents
+import NewHotel from "./hotels/NewHotel";
 import Home from "./LandingPage/Home";
 import Login from "./Auth/Login";
 import Register from "./Auth/Register";
@@ -29,7 +30,7 @@ const App = () => {
           path="/dashboard/seller"
           component={DashboardSeller}
         />
-        {/* <PrivateRoute exact path="/venues/new" component={NewVenue} /> */}
+        <PrivateRoute exact path="/hotels/new" component={NewHotel} />
         <PrivateRoute
           exact
           path="/stripe/callback"

@@ -30,7 +30,7 @@ const LoginForm = ({
         onChange={(event) => setPassword(event.target.value)}
       />
     </div>
-    <button disabled={!email || !password} className="btn btn-primary">Submit</button>
+    <button disabled={!email || !password} className="btn btn-lg btn-primary btn-block">Submit</button>
   </form>
 </body>
 );
