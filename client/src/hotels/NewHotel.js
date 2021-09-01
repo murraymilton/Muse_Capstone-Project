@@ -4,6 +4,10 @@ import ReactGoogleAutocomplete from "react-google-autocomplete";
 import { DatePicker, Select } from "antd";
 import moment from "moment";
 
+// Will destruct the options menu for finalizing the selection menu for the seller
+
+const { Option } = Select;
+
 const config = process.env.REACT_APP_GOOGLEPLACES_API_KEY;
 
 const NewHotel = () => {
@@ -22,11 +26,8 @@ const NewHotel = () => {
     "https://source.unsplash.com/user/erondu?text=PREVIEW"
   );
   // Here we want to destructure our state being passed in.
-  const { title, content, location, image, price, place, from, to, bed } =
-    values;
-  const handleSubmit = (e) => {
-    //
-  };
+  const { title, content, location, image, price, from, to, bed } = values;
+  const handleSubmit = (e) => {};
 
   const handleImageChange = (e) => {
     // console.log(e.target.files[0]);
@@ -49,7 +50,7 @@ const NewHotel = () => {
             name="image"
             onChange={handleImageChange}
             accept="image/*"
-            value={image}
+            // value={image}
             hidden
           />
         </label>
@@ -59,7 +60,7 @@ const NewHotel = () => {
           onChange={handleChange}
           placeholder="Title"
           className="form-control m-2"
-          value={title}
+          value={values?.title}
         />
         <textarea
           name="content"
@@ -72,7 +73,7 @@ const NewHotel = () => {
         <ReactGoogleAutocomplete
           className="form-control m-2"
           placeholder="Location"
-          defaultValue={place}
+          defaultValue={location}
           apiKey={config}
           onPlaceSelected={(place) => {
             setValues(place.formatted_value);
@@ -87,14 +88,25 @@ const NewHotel = () => {
           className="form-control m-2"
           value={price}
         />
-        <input
+        {/* <input
           type="number"
           name="bed"
           onChange={handleChange}
           placeholder="Number of Beds"
           className="form-control m-2"
           value={bed}
-        />
+        /> */}
+        <Select
+          onChange={(value) => setValues({ ...values, bed: value })}
+          className="w-100 m-2"
+          size="large"
+          placeholder="Number of Beds"
+        >
+          <Option key={1}>{1}</Option>
+          <Option key={2}>{2}</Option>
+          <Option key={3}>{3}</Option>
+          <Option key={4}>{4}</Option>
+        </Select>
       </div>
       <DatePicker
         placeholder="From date"
