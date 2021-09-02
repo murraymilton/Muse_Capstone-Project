@@ -7,8 +7,8 @@ const router = express.Router();
 import { requireSignin } from "../middlewares";
 
 //controllers
-import { create } from "../controllers/hotel";
+import { create, hotels } from "../controllers/hotel";
 
 router.post("/create-hotel", requireSignin, formidable(), create);
-
+router.get("/hotels", hotels);
 module.exports = router;

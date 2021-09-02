@@ -28,3 +28,14 @@ export const create = async (req, res) => {
     });
   }
 };
+
+export const hotels = async (req, res) => {
+  // Here we are only asking for the data, not the image, image display front-end afterwards
+  let all = await Hotel.find({})
+    .limit(30)
+    .select("-image.data")
+    .populate("postedBy", "_id name")
+    .exec();
+  console.log(all);
+  res.json(all);
+};
