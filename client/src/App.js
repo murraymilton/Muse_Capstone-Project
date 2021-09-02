@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter, Switch, Route } from "react-router-dom";
+import { BrowserRouter, Switch, Route, Link } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import HeaderNav from "./components/Navigation/HeaderNav";
@@ -13,6 +13,7 @@ import Dashboard from "./User/Dashboard";
 import DashboardSeller from "./User/DashboardSellers";
 import SearchEvents from "./components/SearchPage/SearchEvents";
 import StripeCallback from "./Stripe/StripeCallback";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 const App = () => {
   return (

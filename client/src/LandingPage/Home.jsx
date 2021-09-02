@@ -4,7 +4,6 @@ import './Home.css';
 import Card from '../components/Card/Card';
 
 
-
 const Home = () => {
     return (
         <div className="home">
@@ -51,6 +50,7 @@ const Home = () => {
                 price=""
             />
             </div>
+           
         </div>
         </div>
         
