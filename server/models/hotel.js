@@ -11,7 +11,7 @@ const hotelSchema = new Schema(
     },
     description: {
       type: String,
-      required: "Description is required",
+      required: "Content is required",
       maxlength: 10000,
     },
     location: {
@@ -19,14 +19,13 @@ const hotelSchema = new Schema(
     },
     price: {
       type: Number,
-      required: "Price is Required ",
+      required: "Price is required",
       trim: true,
     },
     postedBy: {
       type: ObjectId,
       ref: "User",
     },
-
     image: {
       data: Buffer,
       contentType: String,
