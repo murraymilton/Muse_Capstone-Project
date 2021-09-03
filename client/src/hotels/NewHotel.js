@@ -1,10 +1,12 @@
 import { useState } from "react";
 import { toast } from "react-toastify";
 import { DatePicker, Select } from "antd";
-import HotelCreateForm from "../components/Forms/HotelCreateForm";
-import { createHotel } from "../Actions/hotel";
 import { useSelector } from "react-redux";
+import { createHotel } from "../Actions/hotel";
+import HotelCreateForm from "../components/Forms/HotelCreateForm";
 // Will destruct the options menu for finalizing the selection menu for the seller
+
+const { Option } = Select;
 
 const NewHotel = () => {
   // redux
@@ -14,7 +16,6 @@ const NewHotel = () => {
   const [values, setValues] = useState({
     title: "",
     description: "",
-    location: "",
     image: "",
     price: "",
     from: "",
@@ -48,15 +49,10 @@ const NewHotel = () => {
 
     let res = await createHotel(token, hotelData);
     console.log("HOTEL CREATE RES", res);
-    toast.success("New hotel is posted");
+    toast("New hotel is posted");
     setTimeout(() => {
       window.location.reload();
     }, 1000);
-    try {
-    } catch (err) {
-      console.log(err);
-      toast.error(err.response.data);
-    }
   };
 
   const handleImageChange = (e) => {
@@ -68,6 +64,7 @@ const NewHotel = () => {
   const handleChange = (e) => {
     setValues({ ...values, [e.target.name]: e.target.value });
   };
+
   return (
     <>
       <div className="container-fluid bg-secondary p-5 text-center">

@@ -16,6 +16,7 @@
     "axios": "^0.21.1",
     "bootstrap": "^5.1.0",
     "date-fns": "^2.23.0",
+    "datepicker-of-antd": "^1.0.6",
     "eventbrite": "^1.3.0",
     "express-jwt": "^6.1.0",
     "moment": "^2.29.1",

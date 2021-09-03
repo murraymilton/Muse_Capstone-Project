@@ -68,10 +68,15 @@ const notConnected = () => (
       <div className="container-fluid p-4">
         <DashboardView />
       </div>
-      {auth && auth.user && auth.user.stripe_seller && 
-      auth.user.stripe_seller.charges_enabled ? connected() : notConnected()}
 
-      <pre>{JSON.stringify(auth,null, 4)}</pre> 
+      {auth &&
+      auth.user &&
+      auth.user.stripe_seller &&
+      auth.user.stripe_seller.charges_enabled
+        ? connected()
+        : notConnected()}
+
+      {/* <pre>{JSON.stringify(auth, null, 4)}</pre> */}
     </>
   );
 };

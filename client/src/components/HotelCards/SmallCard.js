@@ -12,10 +12,10 @@ const SmallCard = ({ h }) => {
             </div>
             <div className="col-md-8">
               <div className="card-body">
-                <h5 className="card-title">
+                <h3 className="card-title">
                   {h.title}
                   <span className="float-right">$0.00</span>
-                </h5>
+                </h3>
               </div>
             </div>
           </div>
