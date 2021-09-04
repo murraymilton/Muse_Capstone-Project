@@ -32,7 +32,7 @@ export const createConnectAccount = async (req, res) => {
   let link = `${accountLink.url}?${queryString.stringify(accountLink)}`;
   console.log("LOGIN LINK", link);
   res.send(link);
-  // 4. update payment schedule (optional. default is 2 days
+  // We will implement here the payout options for the sellers and promoters
 };
 
 const updateDelayDays = async (accountId) => {
@@ -49,11 +49,11 @@ const updateDelayDays = async (accountId) => {
 };
 
 export const getAccountStatus = async (req, res) => {
-  // console.log("GET ACCOUNT STATUS");
+  // console.log("Return customer account balance ");
   const user = await User.findById(req.user._id).exec();
   const account = await stripe.accounts.retrieve(user.stripe_account_id);
-  // console.log("USER ACCOUNT RETRIEVE", account);
-  // update delay days
+  // console.log("User Account Info:", account);
+  // The delay for payment processing for the end-users
   const updatedAccount = await updateDelayDays(account.id);
   const updatedUser = await User.findByIdAndUpdate(
     user._id,
@@ -74,7 +74,7 @@ export const getAccountBalance = async (req, res) => {
     const balance = await stripe.balance.retrieve({
       stripeAccount: user.stripe_account_id,
     });
-    // console.log("BALANCE ===>", balance);
+    // console.log("Return the balance of the user:", balance);
     res.json(balance);
   } catch (err) {
     console.log(err);

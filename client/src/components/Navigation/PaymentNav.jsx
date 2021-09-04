@@ -12,7 +12,7 @@ import { toast } from "react-toastify";
 
 
 
-//  Destruct the state/ Will pass in a image later for use with future implementation
+//  Will destruct the state of the image to capture the badge propertie only
 const { Meta } = Card;
 const { Ribbon } = Badge;
 
@@ -41,7 +41,7 @@ const PaymentNav = () => {
     setLoading(true);
     try {
       const res = await payoutSetting(token);
-      // console.log("RES FOR PAYOUT SETTING LINK", res);
+      // console.log("Return link for users payout process:", res);
       window.location.href = res.data.url;
       setLoading(false);
     } catch (err) {
@@ -65,7 +65,7 @@ const PaymentNav = () => {
         auth.user.stripe_seller &&
         auth.user.stripe_seller.charges_enabled && (
           <>
-            <Ribbon text="Avaliable" color="grey">
+            <Ribbon text="Balance " color="blue">
               <Card className="bg-light pt-1">
                 {balance &&
                   balance.pending &&
@@ -76,7 +76,7 @@ const PaymentNav = () => {
                   ))}
               </Card>
             </Ribbon>
-            <Ribbon text="Payouts" color="silver">
+            <Ribbon text="Payouts" color="blue">
               <Card onClick={handlePayoutSettings} className="bg-light pointer">
                 <SettingOutlined className="h5 pt-2" />
               </Card>
