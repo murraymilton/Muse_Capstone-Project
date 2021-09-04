@@ -26,7 +26,10 @@ const SmallCard = ({ h }) => (
               </h3>
               <p className="alert alert-info">{h.location}</p>
               {/* Using a substring function to minimize the amount of char on display */}
-              <p className="card-text">{`${h.description.substring(200)}`}</p>
+              <p className="card-text">{`${h.description.substring(
+                0,
+                200
+              )}....`}</p>
             </div>
           </div>
         </div>
