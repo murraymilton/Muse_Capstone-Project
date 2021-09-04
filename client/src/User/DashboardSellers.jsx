@@ -18,7 +18,7 @@ const DashboardSeller = () => {
     try {
       let res = await createConnectAccount(auth.token);
       console.log(res); // get login link
-      // window.location.href = res.data;
+      window.location.href = res.data;
     } catch (err) {
       console.log(err);
       toast.error("Registration Could Not Be Completed, Try again.");
@@ -45,15 +45,12 @@ const notConnected = () => (
             <div className="col-md-6 offset-md-3 text-center">
               <HomeOutlined className="h1"/>
               <h4>Register To Add Events/ Hotels</h4>
-              <p className="lead"></p>
-              <button
-              disabled={loading}
-              onClick={handleClick}
-              className="btn btn-primary mb-3"
+              <p className="lead">To Complete your registration as a seller. Click the the register button to complete the process for payout and earnings</p>
+              <button disabled={loading}onClick={handleClick} className="btn btn-primary mb-3"
             >
               {loading ? "Processing..." : "Register"}
             </button>
-              <p className="text-muted"><small>Add Your Venues Today</small></p>
+            <p className="text-muted"><small>As part of the registration process. You will be redirected to complete the full process</small></p>
             </div>
           </div>
         </div>

@@ -24,7 +24,7 @@ export const createConnectAccount = async (req, res) => {
     return_url: process.env.STRIPE_REDIRECT_URL,
     type: "account_onboarding",
   });
-  // prefill any info such as email
+  // We are using the object to assign the given users email which now in our database to be pre-populate to stripe
   accountLink = Object.assign(accountLink, {
     "stripe_user[email]": user.email || undefined,
   });
