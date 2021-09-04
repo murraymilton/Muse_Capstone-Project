@@ -16,7 +16,7 @@ const SmallCard = ({ h }) => (
             <div className="card-body">
               <h3 className="card-title">
                 {h.title}{" "}
-                <span className="float-right text-primary">
+                <span className="float-left text-primary">
                   {currencyFormatter({
                     amount: h.price,
                     currency: "usd",
@@ -24,6 +24,9 @@ const SmallCard = ({ h }) => (
                 </span>
                 {""}
               </h3>
+              <p className="alert alert-info">{h.location}</p>
+              {/* Using a substring function to minimize the amount of char on display */}
+              <p className="card-text">{`${h.description.substring(200)}`}</p>
             </div>
           </div>
         </div>
