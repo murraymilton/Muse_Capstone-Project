@@ -47,11 +47,12 @@ const HotelCreateForm = ({
           className="form-control m-2"
           value={description}
         />
-        <ReactGoogleAutocomplete
+        <input
           className="form-control m-2"
           placeholder="Location"
-          apiKey={config}
-          onPlaceSelected={({ place }) => setLocation(place.formatted_address)}
+          setLocation={setLocation}
+          name={location}
+          onChange={handleChange}
           style={{ height: "50px" }}
         />
 

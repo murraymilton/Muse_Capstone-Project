@@ -7,11 +7,11 @@ const hotelSchema = new Schema(
   {
     title: {
       type: String,
-      required: "Title is required",
+      required: true,
     },
     description: {
       type: String,
-      required: "Content is required",
+      required: true,
       maxlength: 10000,
     },
     location: {
@@ -19,7 +19,7 @@ const hotelSchema = new Schema(
     },
     price: {
       type: Number,
-      required: "Price is required",
+      required: true,
       trim: true,
     },
     postedBy: {

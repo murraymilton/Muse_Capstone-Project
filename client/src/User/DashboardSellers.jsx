@@ -33,7 +33,7 @@ const DashboardSeller = () => {
               <h2>Your Events</h2>
             </div>
             <div className="col md 2">
-              <Link to="/venues/new" className="btn btn-primary">Add Venues/Events</Link>
+              <Link to="/hotels/new" className="btn btn-primary">Add Venues/Events</Link>
             </div>
           </div>
         </div>

@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import SmallCard from "../HotelCards/SmallCard";
-
 import { allHotels } from "../../Actions/hotel";
 
 const HotelListings = () => {

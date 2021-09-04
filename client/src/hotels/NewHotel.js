@@ -47,8 +47,8 @@ const NewHotel = () => {
     console.log([...hotelData]);
 
     let res = await createHotel(token, hotelData);
-    console.log("HOTEL CREATE RES", res);
-    toast("New hotel is posted");
+    console.log("Your Hotel Entry Has Been Added", res);
+    toast("New hotel Added");
     setTimeout(() => {
       window.location.reload();
     }, 1000);
