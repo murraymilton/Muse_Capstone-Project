@@ -14,7 +14,6 @@ import HotelListings from "./components/Hotels/HotelListings";
 import DashboardSeller from "./User/DashboardSellers";
 import SearchEvents from "./components/SearchPage/SearchEvents";
 import StripeCallback from "./Stripe/StripeCallback";
-import "bootstrap/dist/css/bootstrap.min.css";
 
 const App = () => {
   return (

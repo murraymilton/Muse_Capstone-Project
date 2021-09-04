@@ -1,7 +1,7 @@
 import ReactGoogleAutocomplete from "react-google-autocomplete";
 import { DatePicker, Select } from "antd";
 import moment from "moment";
-
+import "antd/dist/antd.css";
 const { Option } = Select;
 
 const config = process.env.REACT_APP_GOOGLEPLACES_API_KEY;
@@ -50,9 +50,8 @@ const HotelCreateForm = ({
         <ReactGoogleAutocomplete
           className="form-control m-2"
           placeholder="Location"
-          defaultValue={location}
-          options={config}
-          onChange={({ suggestion }) => setLocation(suggestion.value)}
+          apiKey={config}
+          onPlaceSelected={({ place }) => setLocation(place.formatted_address)}
           style={{ height: "50px" }}
         />
 

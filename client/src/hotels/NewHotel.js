@@ -1,12 +1,11 @@
 import { useState } from "react";
 import { toast } from "react-toastify";
 import { DatePicker, Select } from "antd";
+import "antd/dist/antd.css";
 import { useSelector } from "react-redux";
 import { createHotel } from "../Actions/hotel";
 import HotelCreateForm from "../components/Forms/HotelCreateForm";
 // Will destruct the options menu for finalizing the selection menu for the seller
-
-const { Option } = Select;
 
 const NewHotel = () => {
   // redux

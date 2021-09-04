@@ -20,10 +20,16 @@ const { Ribbon } = Badge;
 
 
 const PaymentNav = () => {
-    const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(false);
   const [balance, setBalance] = useState(0);
   const { auth } = useSelector((state) => ({ ...state }));
   const { user, token } = auth;
+
+
+
+
+
+
   useEffect(() => {
     getAccountBalance(auth.token).then((res) => {
       // console.log(res);
@@ -45,13 +51,11 @@ const PaymentNav = () => {
     }
   };
 
-
-
   return (
     <div className="d-flex justify-content-around">
       <Card>
         <Meta
-          avatar={<Avatar>{user.name[0]}</Avatar>}
+          // avatar={<Avatar>{user.name[0]}</Avatar>}
           title={user.name}
           description={`Joined ${moment(user.createdAt).fromNow()}`}
         />
