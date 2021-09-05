@@ -42,7 +42,11 @@ export const login = async (req, res) => {
     let user = await User.findOne({ email }).exec();
     console.log("USER EXIST", user);
     if (!user)
-      res.status(400).send("No Account Found: To Register return to Homepage");
+      res
+        .status(400)
+        .send(
+          "There is no account listed under that name: To Register return to Homepage"
+        );
     user.comparePassword(password, (error, match) => {
       console.log("PASSWORD ERROR: PLEASE REVIEW YOUR ENTRY", error);
       if (!match || error) return res.status(400).send("Incorrect Password");

@@ -1,12 +1,15 @@
 import React, { useState, useEffect } from "react";
 import { useStore } from "react-redux";
+import { getSessionId } from "../../Actions/stripe";
 import { read, diffDays } from "../../Actions/hotel";
 import moment from "moment";
 import { useSelector } from "react-redux";
+import { loadStripe } from "@stripe/stripe-js";
 
 const ViewHotel = ({ match, history }) => {
   const [hotel, setHotel] = useState({});
   const [image, setImage] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const { auth } = useSelector((state) => ({ ...state }));
 
@@ -21,17 +24,24 @@ const ViewHotel = ({ match, history }) => {
     setImage(`${process.env.REACT_APP_API}/hotel/image/${res.data._id}`);
   };
 
-  const handleClick = (e) => {
+  const handleClick = async (e) => {
     e.preventDefault();
+    setLoading(true);
     if (!auth) history.push("/login");
-    console.log(
-      "get session id from stripe to shwo a button > checkout with stripe"
-    );
+    // console.log(auth.token, match.params.hotelId);
+    let res = await getSessionId(auth.token, match.params.hotelId);
+    // console.log("get sessionid resposne", res.data.sessionId);
+    const stripe = await loadStripe(process.env.REACT_APP_STRIPE_KEY);
+    stripe
+      .redirectToCheckout({
+        sessionId: res.data.sessionId,
+      })
+      .then((result) => console.log(result));
   };
 
   return (
     <>
-      <div className="container-fluid bg-secondary p-5 text-center">
+      <div className="container-fluid  p-5 text-center">
         <h1>{hotel.title}</h1>
       </div>
       <div className="container-fluid">
@@ -43,7 +53,7 @@ const ViewHotel = ({ match, history }) => {
 
           <div className="col-md-6">
             <br />
-            <b>{hotel.content}</b>
+            <b>{hotel.description}</b>
             <p className="alert alert-info mt-3">${hotel.price}</p>
             <p className="card-text">
               <span className="float-right text-primary">
@@ -59,13 +69,18 @@ const ViewHotel = ({ match, history }) => {
               To <br />{" "}
               {moment(new Date(hotel.to)).format("MMMM Do YYYY, h:mm:ss a")}
             </p>
-            <i>Posted by {hotel.postedBy && hotel.postedBy.name}</i>
+            <i>Posted by {hotel.postedBy && hotel.postedBy.firstname}</i>
             <br />
             <button
               onClick={handleClick}
               className="btn btn-block btn-lg btn-primary mt-3"
+              disabled={loading}
             >
-              {auth && auth.token ? "Book Now" : "Login to Book"}
+              {loading
+                ? "Loading..."
+                : auth && auth.token
+                ? "Book Now"
+                : "Login to Book"}
             </button>
           </div>
         </div>

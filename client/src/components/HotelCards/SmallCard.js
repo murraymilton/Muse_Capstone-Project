@@ -1,7 +1,6 @@
 import { currencyFormatter } from "../../Actions/stripe";
 import { diffDays } from "../../Actions/hotel";
 import { useHistory, Link } from "react-router-dom";
-import { EditOutlined, DeleteOutlined } from "@ant-design/icons";
 import { Button } from "antd";
 const SmallCard = ({
   h,
@@ -36,7 +35,7 @@ const SmallCard = ({
                   {h.title}{" "}
                   <span className="float-right text-primary">
                     {currencyFormatter({
-                      amount: h.price,
+                      amount: h.price * 100,
                       currency: "usd",
                     })}
                   </span>

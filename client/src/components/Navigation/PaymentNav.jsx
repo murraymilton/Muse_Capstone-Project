@@ -2,6 +2,11 @@ import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { Card, Avatar, Badge } from "antd";
 import moment from "moment";
+import {Bar} from 'react-chartjs-2'
+
+
+
+
 import {
   getAccountBalance,
   currencyFormatter,
@@ -55,8 +60,8 @@ const PaymentNav = () => {
     <div className="d-flex justify-content-around">
       <Card>
         <Meta
-          // avatar={<Avatar>{user.name[0]}</Avatar>}
-          title={user.name}
+          avatar={<Avatar>{user.firstname[0]}</Avatar>}
+          title={user.firstname}
           description={`Joined ${moment(user.createdAt).fromNow()}`}
         />
       </Card>

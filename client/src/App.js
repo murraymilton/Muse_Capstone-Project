@@ -9,6 +9,8 @@ import NewHotel from "./hotels/NewHotel";
 import Home from "./LandingPage/Home";
 import Login from "./Auth/Login";
 import Register from "./Auth/Register";
+import StripeSuccess from "./Stripe/StripeSuccess";
+import StripeCancel from "./Stripe/StripeCancel";
 import Dashboard from "./User/Dashboard";
 import EditHotel from "./hotels/EditHotel";
 import HotelListings from "./components/Hotels/HotelListings";
@@ -44,6 +46,12 @@ const App = () => {
         />
         <PrivateRoute exact path="/hotel/edit/:hotelId" component={EditHotel} />
         <Route exact path="/hotel/:hotelId" component={ViewHotel} />
+        <PrivateRoute
+          exact
+          path="/stripe/success/:hotelId"
+          component={StripeSuccess}
+        />
+        <PrivateRoute exact path="/stripe/cancel" component={StripeCancel} />
       </Switch>
     </BrowserRouter>
   );
