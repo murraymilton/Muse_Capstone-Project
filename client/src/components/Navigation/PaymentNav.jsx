@@ -36,7 +36,7 @@ const PaymentNav = () => {
       setBalance(res.data);
     });
   }, []);
-
+  
   const handlePayoutSettings = async () => {
     setLoading(true);
     try {
