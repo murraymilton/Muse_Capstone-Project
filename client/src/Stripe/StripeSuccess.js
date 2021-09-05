@@ -7,16 +7,9 @@ const StripeSuccess = ({ match, history }) => {
   const {
     auth: { token },
   } = useSelector((state) => ({ ...state }));
-  // const { token } = auth;
-
   useEffect(() => {
-    // console.log(
-    //   "send this hotelid to backend to crate order",
-    //   match.params.hotelId
-    // );
     stripeSuccessRequest(token, match.params.hotelId).then((res) => {
       if (res.data.success) {
-        // console.log("stripe success response", res.data);
         history.push("/dashboard");
       } else {
         history.push("/stripe/cancel");

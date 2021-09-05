@@ -14,3 +14,5 @@ const orderSchema = new mongoose.Schema(
 );
 
 export default mongoose.model("Order", orderSchema);
+
+//Review for the rating scheme implementation for each property holder.
