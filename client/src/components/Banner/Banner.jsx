@@ -21,7 +21,7 @@ function Banner() {
                 <h5>
                     Plan a different kind of getaway.
                 </h5>
-                <Button onClick={() => history.push('/search')} variant='outlined'>Explore Opportunities</Button>
+                <Button onClick={() => history.push('/searchevents')} variant='outlined'>Explore Opportunities</Button>
             </div>
             
         </div>

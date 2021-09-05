@@ -10,10 +10,13 @@ import Home from "./LandingPage/Home";
 import Login from "./Auth/Login";
 import Register from "./Auth/Register";
 import Dashboard from "./User/Dashboard";
+import EditHotel from "./hotels/EditHotel";
 import HotelListings from "./components/Hotels/HotelListings";
 import DashboardSeller from "./User/DashboardSellers";
 import SearchEvents from "./components/SearchPage/SearchEvents";
 import StripeCallback from "./Stripe/StripeCallback";
+import ViewHotel from "./components/Hotels/ViewHotel";
+import Chat from "./components/Chat/chat";
 
 const App = () => {
   return (
@@ -26,6 +29,7 @@ const App = () => {
         <Route exact path="/register" component={Register} />
         <Route exact path="/searchevents" component={SearchEvents} />
         <Route exact path="/hotel-listings" component={HotelListings} />
+        <PrivateRoute exact path="/chat" component={Chat} />
         <PrivateRoute exact path="/dashboard" component={Dashboard} />
         <PrivateRoute
           exact
@@ -38,6 +42,8 @@ const App = () => {
           path="/stripe/callback"
           component={StripeCallback}
         />
+        <PrivateRoute exact path="/hotel/edit/:hotelId" component={EditHotel} />
+        <Route exact path="/hotel/:hotelId" component={ViewHotel} />
       </Switch>
     </BrowserRouter>
   );

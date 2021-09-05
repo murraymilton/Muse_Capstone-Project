@@ -39,7 +39,7 @@ const DashboardSeller = () => {
   };
 
   const handleHotelDelete = async (hotelId) => {
-    if (!window.confirm("Are you sure?")) return;
+    if (!window.confirm("Would you like to proceed, with the deletion of this propertie?")) return;
     deleteHotel(auth.token, hotelId).then((res) => {
       toast.success("Hotel Deleted");
       loadSellersHotels();

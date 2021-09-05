@@ -2,6 +2,7 @@ import { currencyFormatter } from "../../Actions/stripe";
 import { diffDays } from "../../Actions/hotel";
 import { useHistory, Link } from "react-router-dom";
 import { EditOutlined, DeleteOutlined } from "@ant-design/icons";
+import { Button } from "antd";
 const SmallCard = ({
   h,
   handleHotelDelete = (d) => d,
@@ -23,7 +24,7 @@ const SmallCard = ({
                 />
               ) : (
                 <img
-                  src="https://source.unsplash.com/user/erondu/200x100.png?text=Muse+Connect"
+                  src="https://source.unsplash.com/user/erondu/500x100.png?text=Muse+Connect"
                   alt="unsplash-random-img"
                   className="card-image img img-fluid"
                 />
@@ -59,7 +60,7 @@ const SmallCard = ({
                 </p>
 
                 {/* Creating all controls to be inherited from the parent class */}
-                <div className="d-flex justify-content-between h4">
+                <div className="d-grid gap-2 d-md-flex justify-content-md-center">
                   {showViewMoreButton && (
                     <button
                       onClick={() => history.push(`/hotel/${h._id}`)}
@@ -71,12 +72,21 @@ const SmallCard = ({
                   {seller && (
                     <>
                       <Link to={`/hotel/edit/${h._id}`}>
-                        <EditOutlined className="text-warning" />
+                        <button
+                          type="button"
+                          size="large"
+                          className="btn btn-warning btn-lg"
+                        >
+                          Edit{" "}
+                        </button>
                       </Link>
-                      <DeleteOutlined
+                      <button
+                        type="button"
                         onClick={() => handleHotelDelete(h._id)}
-                        className="text-danger"
-                      />
+                        className="btn btn-danger btn-lg"
+                      >
+                        Delete{" "}
+                      </button>
                     </>
                   )}
                 </div>
