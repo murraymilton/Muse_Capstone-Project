@@ -35,4 +35,6 @@ router.put(
 router.get("/user-hotel-bookings", requireSignin, userHotelBookings);
 router.get("/is-already-booked/:hotelId", requireSignin, isAlreadyBooked);
 
+// User will be able to rate there stay at the property of the seller
+
 module.exports = router;

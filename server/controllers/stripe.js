@@ -104,7 +104,7 @@ export const stripeSessionId = async (req, res) => {
   // 1 get hotel id from req.body
   const { hotelId } = req.body;
   // 2 find the hotel based on hotel id from db
-  const item = await hotel.findById(hotelId).populate("postedBy").exec();
+  const item = await Hotel.findById(hotelId).populate("postedBy").exec();
   // 3 20% charge as application fee
   const fee = (item.price * 20) / 100;
   // 4 create a session

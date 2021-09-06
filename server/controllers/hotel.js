@@ -36,7 +36,7 @@ export const hotels = async (req, res) => {
   let all = await Hotel.find({})
     .limit(24)
     .select("-image.data")
-    .populate("postedBy", "_id name")
+    .populate("postedBy", "_id firstname lastname")
     .exec();
   // console.log(all);
   res.json(all);
@@ -53,7 +53,7 @@ export const image = async (req, res) => {
 export const sellerHotels = async (req, res) => {
   let all = await Hotel.find({ postedBy: req.user._id })
     .select("-image.data")
-    .populate("postedBy", "_id name")
+    .populate("postedBy", "_id firstname lastname")
     .exec();
   // console.log(all);
   res.send(all);
@@ -104,7 +104,7 @@ export const userHotelBookings = async (req, res) => {
   const all = await Order.find({ orderedBy: req.user._id })
     .select("session")
     .populate("hotel", "-image.data")
-    .populate("orderedBy", "_id name")
+    .populate("orderedBy", "_id firstname lasname")
     .exec();
   res.json(all);
 };

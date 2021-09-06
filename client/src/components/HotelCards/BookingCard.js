@@ -41,7 +41,7 @@ const BookingCard = ({ hotel, session, orderedBy }) => {
                     </span>{" "}
                   </h3>
                   <p className="alert alert-info">{hotel.location}</p>
-                  <p className="card-text">{`${hotel.content.substring(
+                  <p className="card-text">{`${hotel.description.substring(
                     1,
                     200
                   )}...`}</p>

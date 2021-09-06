@@ -72,6 +72,6 @@ export const login = async (req, res) => {
     });
   } catch (error) {
     console.log("Bad Authentication:", error);
-    res.status(400).send("Signin failed");
+    res.status(400).send("Login failed");
   }
 };

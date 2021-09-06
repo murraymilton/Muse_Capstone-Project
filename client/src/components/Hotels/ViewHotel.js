@@ -10,11 +10,21 @@ const ViewHotel = ({ match, history }) => {
   const [hotel, setHotel] = useState({});
   const [image, setImage] = useState("");
   const [loading, setLoading] = useState(false);
+  const [alreadyBooked, setAlreadyBooked] = useState(false);
 
   const { auth } = useSelector((state) => ({ ...state }));
 
   useEffect(() => {
     loadSellerHotel();
+  }, []);
+
+  useEffect(() => {
+    if (auth && auth.token) {
+      alreadyBooked(auth.token, match.params.hotelId).then((res) => {
+        // console.log(res);
+        if (res.data.ok) setAlreadyBooked(true);
+      });
+    }
   }, []);
 
   const loadSellerHotel = async () => {
@@ -26,6 +36,12 @@ const ViewHotel = ({ match, history }) => {
 
   const handleClick = async (e) => {
     e.preventDefault();
+
+    if (!auth || !auth.token) {
+      history.push("/login");
+      return;
+    }
+
     setLoading(true);
     if (!auth) history.push("/login");
     // console.log(auth.token, match.params.hotelId);
@@ -38,10 +54,9 @@ const ViewHotel = ({ match, history }) => {
       })
       .then((result) => console.log(result));
   };
-
   return (
     <>
-      <div className="container-fluid  p-5 text-center">
+      <div className="container-fluid bg-secondary p-5 text-center">
         <h1>{hotel.title}</h1>
       </div>
       <div className="container-fluid">
@@ -53,7 +68,7 @@ const ViewHotel = ({ match, history }) => {
 
           <div className="col-md-6">
             <br />
-            <b>{hotel.description}</b>
+            <b>{hotel.content}</b>
             <p className="alert alert-info mt-3">${hotel.price}</p>
             <p className="card-text">
               <span className="float-right text-primary">
@@ -74,10 +89,12 @@ const ViewHotel = ({ match, history }) => {
             <button
               onClick={handleClick}
               className="btn btn-block btn-lg btn-primary mt-3"
-              disabled={loading}
+              disabled={loading || alreadyBooked}
             >
               {loading
                 ? "Loading..."
+                : alreadyBooked
+                ? "Already Booked"
                 : auth && auth.token
                 ? "Book Now"
                 : "Login to Book"}
