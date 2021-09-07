@@ -11,7 +11,9 @@ const RatingModal = ({ children }) => {
   return (
     <>
       <div onClick={() => setModalVisible(true)}>
-        <StarOutlined />
+        <StarOutlined className="text-warning" />{" "}
+        {user ? "Leave Your Rating" : "Login to add your rating"}
+        <br />
       </div>
     </>
   );
