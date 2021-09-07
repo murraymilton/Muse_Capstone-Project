@@ -128,7 +128,7 @@ export const stripeSessionId = async (req, res) => {
       },
     },
     // We will wait to verify the success of the payment
-    success_url: process.env.STRIPE_SUCCESS_URL,
+    success_url: `${process.env.STRIPE_SUCCESS_URL}/${item._id}`,
     cancel_url: process.env.STRIPE_CANCEL_URL,
   });
   console.log("session:", session);
@@ -174,6 +174,6 @@ export const stripeSuccess = async (req, res) => {
       }
     }
   } catch (err) {
-    console.log("STRIPE SUCCESS ERR", err);
+    console.log("Stripe Authorization error:", err);
   }
 };

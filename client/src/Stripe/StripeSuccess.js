@@ -8,9 +8,11 @@ const StripeSuccess = ({ match, history }) => {
     auth: { token },
   } = useSelector((state) => ({ ...state }));
   useEffect(() => {
+    console.log("Send token to:", match.params.hotelId);
     stripeSuccessRequest(token, match.params.hotelId).then((res) => {
       if (res.data.success) {
         history.push("/dashboard");
+        console.log("stripe:", res.data);
       } else {
         history.push("/stripe/cancel");
       }
@@ -19,10 +21,8 @@ const StripeSuccess = ({ match, history }) => {
 
   return (
     <div className="container">
-      <div className="col">
-        <h2 className="text-center p-5">
-          Payment success. {match.params.hotelId}
-        </h2>
+      <div className="d-flex justify-content-center p-5">
+        <LoadingOutlined className="display-1 text-success p-5" />
       </div>
     </div>
   );

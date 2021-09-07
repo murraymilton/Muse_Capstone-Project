@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useStore } from "react-redux";
 import { getSessionId } from "../../Actions/stripe";
-import { read, diffDays } from "../../Actions/hotel";
+import { read, diffDays, isAlreadyBooked } from "../../Actions/hotel";
 import moment from "moment";
 import { useSelector } from "react-redux";
 import { loadStripe } from "@stripe/stripe-js";
@@ -20,7 +20,7 @@ const ViewHotel = ({ match, history }) => {
 
   useEffect(() => {
     if (auth && auth.token) {
-      alreadyBooked(auth.token, match.params.hotelId).then((res) => {
+      isAlreadyBooked(auth.token, match.params.hotelId).then((res) => {
         // console.log(res);
         if (res.data.ok) setAlreadyBooked(true);
       });

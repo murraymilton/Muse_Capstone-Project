@@ -18,18 +18,17 @@ const EditHotel = ({ match }) => {
     title: "",
     description: "",
     location: "",
-    image: "",
     price: "",
     from: "",
     to: "",
     bed: "",
   });
-
+  const [image, setImage] = useState("");
   const [preview, setPreview] = useState(
     "https://source.unsplash.com/user/erondu?text=PREVIEW"
   );
 
-  const { title, description, image, price, from, to, bed, location } = values;
+  const { title, description, price, from, to, bed, location } = values;
 
   useEffect(() => {
     loadSellerHotel();
@@ -68,7 +67,7 @@ const EditHotel = ({ match }) => {
   const handleImageChange = (e) => {
     // console.log(e.target.files[0]);
     setPreview(URL.createObjectURL(e.target.files[0]));
-    setValues({ ...values, image: e.target.files[0] });
+    setImage(e.target.files[0]);
   };
 
   const handleChange = (e) => {

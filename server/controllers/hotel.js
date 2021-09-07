@@ -104,22 +104,23 @@ export const userHotelBookings = async (req, res) => {
   const all = await Order.find({ orderedBy: req.user._id })
     .select("session")
     .populate("hotel", "-image.data")
-    .populate("orderedBy", "_id firstname lasname")
+    .populate("orderedBy", "_id firstname lastname")
     .exec();
   res.json(all);
 };
 
 export const isAlreadyBooked = async (req, res) => {
   const { hotelId } = req.params;
-  // find orders of the currently logged in user
+  // Return all orders of the user for review and compare which order have been purchases by the user.
   const userOrders = await Order.find({ orderedBy: req.user._id })
     .select("hotel")
     .exec();
-  // check if hotel id is found in userOrders array
+  // Lets check to see if the hotel id is found in user order history
   let ids = [];
   for (let i = 0; i < userOrders.length; i++) {
     ids.push(userOrders[i].hotel.toString());
   }
+  //We are using the includes to get our true or false for user order history
   res.json({
     ok: ids.includes(hotelId),
   });
