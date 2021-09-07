@@ -39,7 +39,7 @@ const BookingCard = ({ hotel, session, orderedBy }) => {
                   </span>
                   {""}
                 </h3>
-                <p className="alert alert-info">{hotel.location}</p>
+                {/* <p className="alert alert-info">{hotel.location}</p> */}
                 {/* Using a substring function to minimize the amount of char on display */}
                 <p className="card-text">{`${hotel.description.substring(
                   0,
@@ -57,7 +57,12 @@ const BookingCard = ({ hotel, session, orderedBy }) => {
                 </p>
 
                 {showModal && (
-                  <OrderModal session={session} orderedBy={orderedBy} />
+                  <OrderModal
+                    session={session}
+                    orderedBy={orderedBy}
+                    showModal={showModal}
+                    setShowModal={setShowModal}
+                  />
                 )}
                 <div className="d-grid gap-2 d-md-flex justify-content-md-center">
                   <button

@@ -1,22 +1,22 @@
 import { Modal } from "antd";
+import "./OrderModal.css";
 
-const OrderModal = ({ session, orderedBy }) => {
+const OrderModal = ({ session, orderedBy, showModal, setShowModal }) => {
   return (
-    <Modal>
-      <pre>{JSON.stringify(session, null, 4)}</pre>
+    <Modal
+      visible={showModal}
+      title="User Payment History"
+      onCancel={() => setShowModal(!showModal)}
+    >
+      <p>User Transaction ID: {session.payment_intent}</p>
+      <p>User Payment Status: {session.payment_status}</p>
+      <p>
+        Amount total: {session.currency.toUpperCase()}{" "}
+        {session.amount_total / 100}
+      </p>
+      <p>User Customer Id: {session.customer}</p>
+      <p>Customer: {orderedBy.firstname}</p>
     </Modal>
   );
 };
 export default OrderModal;
-// visible={showModal}
-// title="Order payment info"
-// onCancel={() => setShowModal(!showModal)}
-// >
-// <p>Payment intent: {session.payment_intent}</p>
-// <p>Payment status: {session.payment_status}</p>
-// <p>
-//   Amount total: {session.currency.toUpperCase()}{" "}
-//   {session.amount_total / 100}
-// </p>
-// <p>Stripe customer id: {session.customer}</p>
-// <p>Customer: {orderedBy.name}</p>

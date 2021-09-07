@@ -41,7 +41,7 @@ const SmallCard = ({
                   </span>
                   {""}
                 </h3>
-                <p className="alert alert-info">{h.location}</p>
+                {/* <p className="alert alert-info">{h.location}</p> */}
                 {/* Using a substring function to minimize the amount of char on display */}
                 <p className="card-text">{`${h.description.substring(
                   0,
