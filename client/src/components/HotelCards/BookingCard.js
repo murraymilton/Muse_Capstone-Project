@@ -4,6 +4,7 @@ import { diffDays } from "../../Actions/hotel";
 import { useHistory, Link } from "react-router-dom";
 import OrderModal from "../modals/OrderModal";
 import StarRatings from "react-star-ratings";
+import RatingModal from "../modals/RatingModal";
 const BookingCard = ({ hotel, session, orderedBy, _id }) => {
   const [showModal, setShowModal] = useState(false);
   const history = useHistory();
@@ -55,18 +56,29 @@ const BookingCard = ({ hotel, session, orderedBy, _id }) => {
                 <p className="card-text">
                   Available from {new Date(hotel.from).toLocaleDateString()}
                 </p>
-                <StarRatings
-                  rating={1}
-                  starRatedColor="orange"
-                  starHoverColor="orange"
-                  starDimension="35px"
-                  changeRating={(newRating, name) =>
-                    console.log("newRating", newRating, "name", _id)
-                  }
-                  isSelectable={true}
-                  numberOfStars={5}
-                  name={_id}
-                />
+                <RatingModal>
+                  <StarRatings
+                    rating={2}
+                    name={_id}
+                    starRatedColor="orange"
+                    starHoverColor="orange"
+                    starDimension="35px"
+                    changeRating={(newRating, name) =>
+                      console.log(
+                        "newRating",
+                        newRating,
+                        "hotel",
+                        hotel,
+                        "orderedBy",
+                        orderedBy
+                      )
+                    }
+                    isSelectable={true}
+                    numberOfStars={5}
+                    orderedBy={orderedBy}
+                  />
+                </RatingModal>
+
                 {showModal && (
                   <OrderModal
                     session={session}

@@ -3,16 +3,28 @@ import { Modal, Button } from "antd";
 import { toast } from "react-toastify";
 import { useSelector } from "react-redux";
 import { StarOutlined } from "@ant-design/icons";
+import { useHistory } from "react-router-dom";
 
 const RatingModal = ({ children }) => {
-  const { user } = useSelector((state) => ({ ...state }));
+  const { auth } = useSelector((state) => ({ ...state }));
   const [modalVisible, setModalVisible] = useState(false);
+
+  let history = useHistory();
+
+  const handleModal = () => {
+    if (auth && auth.token) {
+      setModalVisible(true);
+    } else {
+      history.push("/login");
+      return;
+    }
+  };
 
   return (
     <>
-      <div onClick={() => setModalVisible(true)}>
+      <div onClick={handleModal}>
         <StarOutlined className="text-warning" />
-        <br /> {user ? "Leave Your Rating" : "Login to add your rating"}
+        <br /> {auth ? "Leave Your Rating" : "Login to add your rating"}
       </div>
       <Modal
         title="Rate your experience"
@@ -22,7 +34,7 @@ const RatingModal = ({ children }) => {
           setModalVisible(false);
           toast.success("Thanks for your rating");
         }}
-        okCancel={() => {
+        onCancel={() => {
           setModalVisible(false);
         }}
       >

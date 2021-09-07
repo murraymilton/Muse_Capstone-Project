@@ -2,8 +2,7 @@ import { currencyFormatter } from "../../Actions/stripe";
 import { diffDays } from "../../Actions/hotel";
 import { useHistory, Link } from "react-router-dom";
 import { Button } from "antd";
-import StarRatings from "react-star-ratings";
-
+import RatingModal from "../modals/RatingModal";
 const SmallCard = ({
   h,
   handleHotelDelete = (d) => d,
@@ -43,6 +42,7 @@ const SmallCard = ({
                   </span>
                   {""}
                 </h3>
+
                 {/* <p className="alert alert-info">{h.location}</p> */}
                 {/* Using a substring function to minimize the amount of char on display */}
                 <p className="card-text">{`${h.description.substring(
@@ -59,6 +59,9 @@ const SmallCard = ({
                 <p className="card-text">
                   Available from {new Date(h.from).toLocaleDateString()}
                 </p>
+                <div>
+                  <RatingModal></RatingModal>
+                </div>
                 {/* Creating all controls to be inherited from the parent class */}
                 <div className="d-grid gap-2 d-md-flex justify-content-md-center">
                   {showViewMoreButton && (
