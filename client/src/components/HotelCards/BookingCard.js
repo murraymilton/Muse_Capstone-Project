@@ -58,9 +58,12 @@ const BookingCard = ({ hotel, session, orderedBy, _id }) => {
                 <StarRatings
                   rating={4}
                   starRatedColor="yellow"
+                  starHoverColor="yellow"
+                  starDimension="35px"
                   changeRating={(newRating, name) =>
-                    console.log("newRating", newRating)
+                    console.log("newRating", newRating, "name", _id)
                   }
+                  isSelectable={true}
                   numberOfStars={5}
                   name={_id}
                 />
