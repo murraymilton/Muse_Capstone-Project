@@ -56,9 +56,9 @@ const BookingCard = ({ hotel, session, orderedBy, _id }) => {
                   Available from {new Date(hotel.from).toLocaleDateString()}
                 </p>
                 <StarRatings
-                  rating={4}
-                  starRatedColor="yellow"
-                  starHoverColor="yellow"
+                  rating={1}
+                  starRatedColor="orange"
+                  starHoverColor="orange"
                   starDimension="35px"
                   changeRating={(newRating, name) =>
                     console.log("newRating", newRating, "name", _id)
