@@ -16,7 +16,7 @@ const HotelListings = () => {
   return (
     <>
       <div className="container-fluid  p-5 text-center">
-        <h1>Hotel Listings</h1>
+        <h1>Lodging Listings</h1>
       </div>
       <div className="container-fluid">
         <br />

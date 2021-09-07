@@ -3,7 +3,7 @@ import DashboardView from "../components/Navigation/DashboardView";
 import PaymentNav from "../components/Navigation/PaymentNav";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
-import {HomeOutlined} from "@ant-design/icons"
+import {ProfileOutlined } from "@ant-design/icons"
 import {createConnectAccount} from "../Actions/stripe"
 import { sellerHotels, deleteHotel } from "../Actions/hotel";
 import {toast} from "react-toastify"
@@ -76,9 +76,9 @@ const notConnected = () => (
   <div className="container-fluid">
           <div className="row">
             <div className="col-md-6 offset-md-3 text-center">
-              <HomeOutlined className="h1"/>
+              <ProfileOutlined  className="h1"/>
               <h4>Register To Add Events/ Hotels</h4>
-              <p className="lead">To Complete your registration as a seller. Click the the register button to complete the process for payout and earnings</p>
+              <p className="lead">To Complete your registration as an Event Manager or Property Seller. Click the the register button to complete the process for payout and earnings</p>
               <button disabled={loading}onClick={handleClick} className="btn btn-primary mb-3"
             >
               {loading ? "Processing..." : "Register"}
