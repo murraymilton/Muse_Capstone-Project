@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import SmallCard from "../HotelCards/SmallCard";
 import { allHotels } from "../../Actions/hotel";
+import Search from "../Forms/Search";
 
 const HotelListings = () => {
   const [hotels, setHotels] = useState([]);
@@ -17,6 +18,10 @@ const HotelListings = () => {
     <>
       <div className="container-fluid  p-5 text-center">
         <h1>Lodging Listings</h1>
+      </div>
+      <br />
+      <div className="col">
+        <Search />
       </div>
       <div className="container-fluid">
         <br />

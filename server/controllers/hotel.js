@@ -125,3 +125,35 @@ export const isAlreadyBooked = async (req, res) => {
     ok: ids.includes(hotelId),
   });
 };
+
+// export const hotelReview = (req, res) => {
+//   const hotel = await Hotel.findById(req.params.hotelId).exec();
+//   const user = await User.findOne({ email: req.user.email }).exec();
+//   const { star } = req.body;
+//   //The user that will be updating the listing from the property holder
+//   let existingRatingObject = hotel.ratings.find(
+//     (ele) => ele.postedBy.toString() === user._id.toString()
+//   );
+//   //if user has not left a rating yet, push it
+//   if (existingRatingObject === undefined) {
+//     let ratingAdded = await Hotel.findByIdAndUpdate(
+//       req.params.hotelId,
+//       {
+//         $push: { ratings: { star, postedBy: user._id } },
+//       },
+//       { new: true }
+//     ).exec();
+//     console.log("ratingAdded:", ratingAdded);
+//     res.json(ratingAdded);
+//   } else {
+//     const ratingUpdated = await Hotel.updateOne(
+//       {
+//         ratings: { $elemMatch: existingRatingObject },
+//       },
+//       { $set: { "ratings.$.star": star } },
+//       { new: true }
+//     ).exec();
+//     console.log("ratingUpdated:", ratingUpdated);
+//     res.json(ratingUpdated);
+//   }
+// };

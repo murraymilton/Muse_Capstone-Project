@@ -20,16 +20,8 @@ const Search = () => {
   };
 
   return (
-    <div className="d-flex pb-4">
-      <div className="w-100">
-        {/* <AlgoliaPlaces
-            placeholder="Location"
-            defaultValue={location}
-            options={config}
-            onChange={({ suggestion }) => setLocation(suggestion.value)}
-            style={{ height: "50px" }}
-          /> */}
-      </div>
+    <div className=" container-fluid d-flex pb-4">
+      <div className="w-300"></div>
 
       <RangePicker
         onChange={(value, dateString) => setDate(dateString)}
@@ -38,7 +30,6 @@ const Search = () => {
         }
         className="w-100"
       />
-
       <Select
         onChange={(value) => setBed(value)}
         className="w-100"
@@ -50,7 +41,6 @@ const Search = () => {
         <Option key={3}>{3}</Option>
         <Option key={4}>{4}</Option>
       </Select>
-
       <SearchOutlined
         onClick={handleSubmit}
         className="btn btn-primary p-3 btn-square"

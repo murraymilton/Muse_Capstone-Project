@@ -2,6 +2,8 @@ import { currencyFormatter } from "../../Actions/stripe";
 import { diffDays } from "../../Actions/hotel";
 import { useHistory, Link } from "react-router-dom";
 import { Button } from "antd";
+import StarRatings from "react-star-ratings";
+
 const SmallCard = ({
   h,
   handleHotelDelete = (d) => d,
@@ -57,7 +59,6 @@ const SmallCard = ({
                 <p className="card-text">
                   Available from {new Date(h.from).toLocaleDateString()}
                 </p>
-
                 {/* Creating all controls to be inherited from the parent class */}
                 <div className="d-grid gap-2 d-md-flex justify-content-md-center">
                   {showViewMoreButton && (

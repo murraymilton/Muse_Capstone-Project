@@ -3,8 +3,8 @@ import { currencyFormatter } from "../../Actions/stripe";
 import { diffDays } from "../../Actions/hotel";
 import { useHistory, Link } from "react-router-dom";
 import OrderModal from "../modals/OrderModal";
-
-const BookingCard = ({ hotel, session, orderedBy }) => {
+import StarRatings from "react-star-ratings";
+const BookingCard = ({ hotel, session, orderedBy, _id }) => {
   const [showModal, setShowModal] = useState(false);
   const history = useHistory();
   return (
@@ -55,7 +55,15 @@ const BookingCard = ({ hotel, session, orderedBy }) => {
                 <p className="card-text">
                   Available from {new Date(hotel.from).toLocaleDateString()}
                 </p>
-
+                <StarRatings
+                  rating={4}
+                  starRatedColor="yellow"
+                  changeRating={(newRating, name) =>
+                    console.log("newRating", newRating)
+                  }
+                  numberOfStars={5}
+                  name={_id}
+                />
                 {showModal && (
                   <OrderModal
                     session={session}
