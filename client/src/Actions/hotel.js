@@ -57,3 +57,10 @@ export const isAlreadyBooked = async (token, hotelId) =>
       Authorization: `Bearer ${token}`,
     },
   });
+
+export const updateRating = async (token, data, hotelId) =>
+  axios.put(`${process.env.REACT_APP_API}/hotel/review/${hotelId}`, data, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });

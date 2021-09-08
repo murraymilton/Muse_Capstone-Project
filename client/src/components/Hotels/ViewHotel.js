@@ -1,12 +1,9 @@
 import React, { useState, useEffect } from "react";
-import { useStore } from "react-redux";
 import { getSessionId } from "../../Actions/stripe";
 import { read, diffDays, isAlreadyBooked } from "../../Actions/hotel";
 import moment from "moment";
 import { useSelector } from "react-redux";
 import { loadStripe } from "@stripe/stripe-js";
-import RatingModal from "../modals/RatingModal";
-import StarRatings from "react-star-ratings";
 
 const ViewHotel = ({ match, history }) => {
   const [hotel, setHotel] = useState({});
@@ -19,7 +16,6 @@ const ViewHotel = ({ match, history }) => {
   useEffect(() => {
     loadSellerHotel();
   }, []);
-
   useEffect(() => {
     if (auth && auth.token) {
       isAlreadyBooked(auth.token, match.params.hotelId).then((res) => {
@@ -90,36 +86,20 @@ const ViewHotel = ({ match, history }) => {
             <i>Posted by {hotel.postedBy && hotel.postedBy.firstname}</i>
 
             <br />
-            <div>
-              <RatingModal>
-                <StarRatings
-                  rating={2}
-                  name={auth}
-                  starRatedColor="orange"
-                  starHoverColor="orange"
-                  starDimension="35px"
-                  changeRating={(newRating, name) =>
-                    console.log("newRating", newRating, "hotel", hotel)
-                  }
-                  isSelectable={true}
-                  numberOfStars={5}
-                />
-              </RatingModal>
-            </div>
-            <button
-              onClick={handleClick}
-              className="btn btn-block btn-lg btn-primary mt-3"
-              disabled={loading || alreadyBooked}
-            >
-              {loading
-                ? "Loading..."
-                : alreadyBooked
-                ? "Already Booked"
-                : auth && auth.token
-                ? "Book Now"
-                : "Login to Book"}
-            </button>
           </div>
+          <button
+            onClick={handleClick}
+            className="btn btn-block btn-lg btn-primary mt-3"
+            disabled={loading || alreadyBooked}
+          >
+            {loading
+              ? "Loading..."
+              : alreadyBooked
+              ? "Already Booked"
+              : auth && auth.token
+              ? "Book Now"
+              : "Login to Book"}
+          </button>
         </div>
       </div>
     </>

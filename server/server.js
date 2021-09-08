@@ -13,17 +13,21 @@ mongoose
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
-  .then(() => console.log("Database is now Connect: Site is now Live"))
+  .then(() => {
+    console.log("Database is now Connect: Site is now Live");
+
+    //Middlewares
+    app.use(cors());
+    app.use(morgan("dev"));
+    app.use(express.json());
+
+    //Routing Middleware
+    readdirSync("./routes").map((r) =>
+      app.use("/api", require(`./routes/${r}`))
+    );
+
+    const port = process.env.PORT || 8000;
+
+    app.listen(port, () => console.log(`Server is running on Port ${port}`));
+  })
   .catch(() => console.log("Database Connection Error:", error));
-
-//Middlewares
-app.use(cors()); //Resolves our conflict origin between ports
-app.use(morgan("dev"));
-app.use(express.json());
-
-//Routing Middleware
-readdirSync("./routes").map((r) => app.use("/api", require(`./routes/${r}`)));
-
-const port = process.nextTick.PORT || 8000;
-
-app.listen(port, () => console.log(`Server is running on Port ${port}`));

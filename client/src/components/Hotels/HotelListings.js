@@ -1,9 +1,11 @@
 import { useState, useEffect } from "react";
+import { useSelector } from "react-redux";
 import SmallCard from "../HotelCards/SmallCard";
 import { allHotels } from "../../Actions/hotel";
 import Search from "../Forms/Search";
 
 const HotelListings = () => {
+  const { auth } = useSelector((state) => ({ ...state }));
   const [hotels, setHotels] = useState([]);
 
   useEffect(() => {
@@ -11,9 +13,16 @@ const HotelListings = () => {
   }, []);
 
   const loadAllhotels = async () => {
-    let res = await allHotels();
-    setHotels(res.data);
+    let {data} = await allHotels();
+    data = data.map(hotel => {
+      const userRating = hotel.ratings.find(rating => rating.postedBy.toString() === auth.user._id.toString());
+      if (userRating) hotel.userRating = userRating;
+      return hotel;
+    })
+    setHotels(data);
   };
+
+  console.log("hotels==>>", hotels, "auth==>>", auth);
   return (
     <>
       <div className="container-fluid  p-5 text-center">

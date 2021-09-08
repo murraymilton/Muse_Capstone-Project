@@ -60,7 +60,7 @@ const SmallCard = ({
                   Available from {new Date(h.from).toLocaleDateString()}
                 </p>
                 <div>
-                  <RatingModal></RatingModal>
+                  <RatingModal hotel={h} />
                 </div>
                 {/* Creating all controls to be inherited from the parent class */}
                 <div className="d-grid gap-2 d-md-flex justify-content-md-center">

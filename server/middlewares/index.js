@@ -1,5 +1,6 @@
 import expressJwt from "express-jwt";
 import Hotel from "../models/hotel";
+
 // req.user
 export const requireSignin = expressJwt({
   // We need to verify the user certificates. In addition to validate for expiration date

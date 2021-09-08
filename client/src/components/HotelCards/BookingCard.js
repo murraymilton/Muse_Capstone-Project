@@ -1,13 +1,35 @@
 import { useState } from "react";
 import { currencyFormatter } from "../../Actions/stripe";
-import { diffDays } from "../../Actions/hotel";
-import { useHistory, Link } from "react-router-dom";
+import { diffDays, updateRating } from "../../Actions/hotel";
+import { useSelector } from "react-redux";
 import OrderModal from "../modals/OrderModal";
 import StarRatings from "react-star-ratings";
-import RatingModal from "../modals/RatingModal";
+
 const BookingCard = ({ hotel, session, orderedBy, _id }) => {
+  const { auth } = useSelector((state) => ({ ...state }));
   const [showModal, setShowModal] = useState(false);
-  const history = useHistory();
+
+  const handleUpdateRating = (newRating) => {
+    if (auth && auth.token) {
+      updateRating(auth.token, { star: newRating }, hotel._id).then((res) => {
+        console.log("hey==>>>", res);
+      });
+    }
+  };
+
+  const userHotelRating = hotel.ratings.find(
+    (rating) => rating.postedBy.toString() === auth.user._id.toString()
+  );
+
+  console.log(
+    "hotel==>>",
+    "hotel",
+    "auth==>>",
+    "auth",
+    "gg==>>>",
+    userHotelRating
+  );
+
   return (
     <>
       <div className="card mb-3">
@@ -56,28 +78,19 @@ const BookingCard = ({ hotel, session, orderedBy, _id }) => {
                 <p className="card-text">
                   Available from {new Date(hotel.from).toLocaleDateString()}
                 </p>
-                <RatingModal>
-                  <StarRatings
-                    rating={2}
-                    name={_id}
-                    starRatedColor="orange"
-                    starHoverColor="orange"
-                    starDimension="35px"
-                    changeRating={(newRating, name) =>
-                      console.log(
-                        "newRating",
-                        newRating,
-                        "hotel",
-                        hotel,
-                        "orderedBy",
-                        orderedBy
-                      )
-                    }
-                    isSelectable={true}
-                    numberOfStars={5}
-                    orderedBy={orderedBy}
-                  />
-                </RatingModal>
+                {/* <RatingModal> */}
+                <StarRatings
+                  rating={userHotelRating.star}
+                  name={_id}
+                  starRatedColor="orange"
+                  starHoverColor="orange"
+                  starDimension="35px"
+                  changeRating={handleUpdateRating}
+                  isSelectable={true}
+                  numberOfStars={5}
+                  orderedBy={orderedBy}
+                />
+                {/* </RatingModal> */}
 
                 {showModal && (
                   <OrderModal
