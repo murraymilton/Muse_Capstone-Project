@@ -3,7 +3,7 @@ import Banner from '../components/Banner/Banner'
 import './Home.css';
 import Card from '../components/Card/Card';
 
-
+// Planning to add modal to main page reel for events listed by event managers.
 const Home = () => {
     return (
         <div className="home">
