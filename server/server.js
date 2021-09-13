@@ -30,4 +30,4 @@ mongoose
 
     app.listen(port, () => console.log(`Server is running on Port ${port}`));
   })
-  .catch(() => console.log("Database Connection Error:", error));
+  .catch((error) => console.log("Database Connection Error:", error));

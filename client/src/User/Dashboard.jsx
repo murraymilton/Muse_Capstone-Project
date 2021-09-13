@@ -44,6 +44,7 @@ const Dashboard = () => {
             </div>
           </div>
         </div>
+        {/* Making revisons to booking section for users info */}
         <div className="row">
         {booking.map((b) => (
           <BookingCard
