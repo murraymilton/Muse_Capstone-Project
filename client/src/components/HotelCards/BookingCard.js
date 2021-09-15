@@ -4,6 +4,7 @@ import { diffDays, updateRating } from "../../Actions/hotel";
 import { useSelector } from "react-redux";
 import OrderModal from "../modals/OrderModal";
 import StarRatings from "react-star-ratings";
+import RatingModal from "../modals/RatingModal";
 
 const BookingCard = ({ hotel, session, orderedBy, _id }) => {
   const { auth } = useSelector((state) => ({ ...state }));
@@ -79,7 +80,7 @@ const BookingCard = ({ hotel, session, orderedBy, _id }) => {
                   Available from {new Date(hotel.from).toLocaleDateString()}
                 </p>
                 {/* <RatingModal> */}
-                <StarRatings
+                {/* <StarRatings
                   rating={userHotelRating.star}
                   name={_id}
                   starRatedColor="orange"
@@ -89,7 +90,7 @@ const BookingCard = ({ hotel, session, orderedBy, _id }) => {
                   isSelectable={true}
                   numberOfStars={5}
                   orderedBy={orderedBy}
-                />
+                /> */}
                 {/* </RatingModal> */}
 
                 {showModal && (
