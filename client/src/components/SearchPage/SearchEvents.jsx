@@ -13,13 +13,24 @@ import useStyles from './styles'
 function SearchEvents() {
     const classes = useStyles();
     const [places, setPlaces] = useState([]);
+    const [filteredPlaces, setFilteredPlaces] = useState([]);
     const [childClicked, setChildClicked] = useState(null);
 
     const [coords, setCoords] = useState({});
     const [bounds, setBounds] = useState({});
 
     const [isLoading, setIsLoading] = useState(false);
+    const [type, setType] = useState('restaurants')
+    const [rating, setRating] = useState('')
+    const [autocomplete, setAutocomplete] = useState(null)
+    const onLoad = (autoC) => setAutocomplete(autoC)
+    const onPlaceChanged = () => {
+        const lat = autocomplete.getPlace().geometry.location.lat();
+        const lng = autocomplete.getPlace().geometry.location.lng();
 
+        setCoords({lat, lng})
+
+    }
 
     useEffect(() => {
         navigator.geolocation.getCurrentPosition(({ coords: { latitude, longitude } }) => {
@@ -28,16 +39,23 @@ function SearchEvents() {
       }, []);
 
 
+      useEffect(() =>{
+          const filteredPlaces = places.filter((place) => place.rating > rating)
+          setFilteredPlaces(filteredPlaces)
+      }, [rating])
 
 
     useEffect(() => {
+        if(bounds.sw && bounds.ne){
         setIsLoading(true)
-        getPlacesData( bounds.sw, bounds.ne)
+        getPlacesData(type, bounds.sw, bounds.ne)
         .then((data) => {
-            setPlaces(data);
+            setPlaces(data?.filter((place) => place.name && place.num_reviews > 0));
+            setFilteredPlaces([])
             setIsLoading(false)
         })
-    }, [coords, bounds]);
+    }
+    }, [type, coords, bounds]);
     return (
         <>
             <CssBaseline/>
@@ -50,29 +68,33 @@ function SearchEvents() {
                     <Typography variant="h6" className={classes.title}>
                         Find Your Destination
                     </Typography>
-                    {/* <Autocomplete> */}
+                    <Autocomplete onLoad={onLoad} onPlaceChanged={onPlaceChanged}>
                         <div className={classes.search}>
                             <div className={classes.searchIcon}>
                                 <SearchIcon/>
                             </div>
                             <InputBase placeholder="Find Location..." classes={{root: classes.inputRoot, input: classes.inputInput}}/>
                         </div>
-                    {/* </Autocomplete> */}
+                    </Autocomplete>
                     </Box>
                 </Toolbar>
             </AppBar>
             <Grid container spacing={3} style={{width: '100%'}}>
                 <Grid item xs={12} md={4}>
-                    <List places={places}
+                    <List places={filteredPlaces.length ? filteredPlaces : places}
                     childClicked={childClicked}
-                    isLoading={isLoading}/>
+                    isLoading={isLoading}
+                    type={type}
+                    setType={setType}
+                    rating={rating}
+                    setRating={setRating}/>
                 </Grid>
                 <Grid item xs={12} md={8}>
                     <Map 
                     setCoords={setCoords}
                     setBounds={setBounds}
                     coords={coords}
-                    places={places}
+                    places={filteredPlaces.length ? filteredPlaces : places}
                     setChildClicked={setChildClicked}/>
                 </Grid>
             </Grid>
