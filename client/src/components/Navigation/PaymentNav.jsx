@@ -6,7 +6,7 @@ import GridItem from "../Grid/GridItem"
 import GridContainer from "../Grid/GridContainer"
 import Store from "@material-ui/icons/Store"
 import Language from "@material-ui/icons/Language"
-import Icon from "@material-ui/core/Icon"
+// import Icon from "@material-ui/core/Icon"
 import{makeStyles} from "@material-ui/core/styles"
 import DateRange from "@material-ui/icons/DateRange"
 import Update from "@material-ui/icons/Update"
@@ -25,7 +25,7 @@ import {
   currencyFormatter,
   payoutSetting,
 } from "../../Actions/stripe";
-import { SettingOutlined } from "@ant-design/icons";
+// import { SettingOutlined } from "@ant-design/icons";
 import { toast } from "react-toastify";
 
 const useStyles = makeStyles(styles);
