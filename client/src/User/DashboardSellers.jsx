@@ -54,7 +54,7 @@ const DashboardSeller = () => {
               <h2>Your Events</h2>
             </div>
             <div className="col md 2">
-              <Link to="/hotels/new" className="btn btn-primary">Add Venues/Events</Link>
+              <Link to="/hotels/new" className="btn btn-primary">Add Lodging/Hotels</Link>
             </div>
           </div>
 

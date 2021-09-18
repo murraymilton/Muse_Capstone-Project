@@ -38,7 +38,8 @@ const Dashboard = () => {
               <h2>Your Events</h2>
             </div>
             <div className="d-grid gap-2">
-              <Link to="/searchevents" className="btn btn-primary">Search Events</Link>
+              <Link to="/searchevents" className="btn btn-primary">Find A Location</Link>
+              <Link to="/venuefinder" className="btn btn-primary">Search Venues</Link>
               <Link to="/hotel-listings" className="btn btn-primary">Search Lodging</Link>
               <Link to="/chat" className="btn btn-primary">Chat With Event Manager or Lodging Providers</Link>
             </div>

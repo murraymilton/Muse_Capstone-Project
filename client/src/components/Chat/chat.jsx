@@ -1,6 +1,7 @@
 import React from "react";
 import './chat.css'
 import {ChatEngine} from "react-chat-engine";
+import ChatFeed from "../ChatFeed"
 import {motion} from "framer-motion";
 const Chat =() => {
     // const {userEmail, password} = currentUser;
@@ -14,8 +15,9 @@ const Chat =() => {
         <ChatEngine
           height="100vh"
       projectID="ba49b670-8392-422f-a5c0-fa3e14464446"
-      userName=" mm357"
+      userName=" museuser"
       userSecret="mm1234567"
+      renderChatFeed={(chatAppProps) => <ChatFeed {...chatAppProps} />}
     />
         </>
         </motion.div>

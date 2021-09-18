@@ -18,6 +18,7 @@ import DashboardSeller from "./User/DashboardSellers";
 import SearchEvents from "./components/SearchPage/SearchEvents";
 import StripeCallback from "./Stripe/StripeCallback";
 import ViewHotel from "./components/Hotels/ViewHotel";
+import VenuFinder from "./components/VenueFinder/VenueFinder";
 import Chat from "./components/Chat/chat";
 
 const App = () => {
@@ -30,6 +31,7 @@ const App = () => {
         <Route exact path="/login" component={Login} />
         <Route exact path="/register" component={Register} />
         <Route exact path="/searchevents" component={SearchEvents} />
+        <Route exact path="/venueFinder" component={VenuFinder} />
         <Route exact path="/hotel-listings" component={HotelListings} />
         <PrivateRoute exact path="/chat" component={Chat} />
         <PrivateRoute exact path="/dashboard" component={Dashboard} />

@@ -4,7 +4,7 @@ const DashboardView = () => {
   const active = window.location.pathname;
   //   console.log(active);
   return (
-    <ul className="nav nav-tabs">
+    <ul className="nav nav-pills">
       <li className="nav-item">
         <Link
           className={`nav-link ${active === "/dashboard" && "active"}`}
@@ -18,7 +18,7 @@ const DashboardView = () => {
           className={`nav-link ${active === "/dashboard/seller" && "active"}`}
           to="/dashboard/seller"
         >
-          Your Venues/Events
+          Inventory/Events
         </Link>
       </li>
     </ul>

@@ -66,7 +66,7 @@ const NewHotel = () => {
 
   return (
     <>
-      <div className="container-fluid bg-secondary p-5 text-center">
+      <div className="container-fluid  p-5 text-center">
         <h2>Add Hotel</h2>
       </div>
       <div className="container-fluid">
@@ -89,8 +89,8 @@ const NewHotel = () => {
               alt="preview_image"
               className="img img-fluid m-2"
             />
-            <pre>{JSON.stringify(values, null, 4)}</pre>
-            {JSON.stringify(location)}
+            {/* <pre>{JSON.stringify(values, null, 4)}</pre> */}
+            {/* {JSON.stringify(location)} */}
           </div>
         </div>
       </div>
