@@ -7,7 +7,7 @@ const LoginForm = ({
     password,
     setPassword}) =>(
  <body className="text-center">
-    <form onSubmit={handleSubmit} className="form-signin">
+    <form  onSubmit={handleSubmit} className=" form-signin">
       
     <div className="form-group mb-3">
       <label className="form-label">Email</label>
@@ -30,7 +30,7 @@ const LoginForm = ({
         onChange={(event) => setPassword(event.target.value)}
       />
     </div>
-    <button disabled={!email || !password} className="btn btn-lg btn-primary btn-block">Submit</button>
+    <button disabled={!email || !password} className="btn btn-lg btn-dark btn-block">Submit</button>
   </form>
 </body>
 );

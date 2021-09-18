@@ -51,10 +51,10 @@ const DashboardSeller = () => {
     <div className="container-fluid bg-primary">
           <div className="row">
             <div className="col-md-10">
-              <h2>Your Events</h2>
+              <h2>Current Inventory</h2>
             </div>
             <div className="col md 2">
-              <Link to="/hotels/new" className="btn btn-primary">Add Lodging/Hotels</Link>
+              <Link to="/hotels/new" className="btn btn-">Add Listings</Link>
             </div>
           </div>
 

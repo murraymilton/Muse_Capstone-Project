@@ -1,7 +1,27 @@
 /* body {
   height: 90%;
 } */
-
+.form-signin {
+  background: linear-gradient(to bottom, #610094, #3f0071);
+}
+.btn {
+  color: #fff;
+  /* background-color: #222; */
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  width: 100%;
+  padding: 10px 20px;
+  margin: 0 0 15px 0;
+  border: none;
+  border-radius: 20px;
+  transition: all 0.3s ease;
+}
+.btn:hover,
+.btn:focus {
+  letter-spacing: 3px;
+  box-shadow: 2px 2px 2px #333;
+}
 .form-signin {
   width: 100%;
   max-width: 330px;

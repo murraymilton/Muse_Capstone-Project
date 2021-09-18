@@ -1,6 +1,6 @@
 const VenuFinder = () => {
     return(
-        <div><h1>Venue Finder</h1></div>
+        <div className="d-flex justify-content-center"><h1 >Venue Finder</h1></div>
     )
 }
 export default VenuFinder
