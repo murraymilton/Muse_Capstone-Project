@@ -48,13 +48,13 @@ const DashboardSeller = () => {
 
 
   const connected = () =>  (
-    <div className="container-fluid bg-primary">
+    <div id="dash"className="container-fluid ">
           <div className="row">
             <div className="col-md-10">
-              <h2>Current Inventory</h2>
+              <h2 id="inventory">Current Inventory</h2>
             </div>
             <div className="col md 2">
-              <Link to="/hotels/new" className="btn btn-">Add Listings</Link>
+              <Link to="/hotels/new" id="addnew"className="btn btn-dark">Add Listings</Link>
             </div>
           </div>
 
@@ -77,7 +77,7 @@ const notConnected = () => (
           <div className="row">
             <div className="col-md-6 offset-md-3 text-center">
               <ProfileOutlined  className="h1"/>
-              <h4>Register To Add Events/ Hotels</h4>
+              <h4>Register To Add Events/ Lodging</h4>
               <p className="lead">To Complete your registration as an Event Manager or Property Seller. Click the the register button to complete the process for payout and earnings</p>
               <button disabled={loading}onClick={handleClick} className="btn btn-primary mb-3"
             >

@@ -87,7 +87,7 @@ const BookingCard = ({ hotel, session, orderedBy, _id }) => {
                     </p>
                   </>
                 )}
-                <RatingModal>
+                <RatingModal hotel={hotel}>
                   <StarRatings
                     rating={userHotelRating.star}
                     name={_id}

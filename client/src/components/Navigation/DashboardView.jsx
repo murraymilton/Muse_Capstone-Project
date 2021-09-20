@@ -4,7 +4,7 @@ const DashboardView = () => {
   const active = window.location.pathname;
   //   console.log(active);
   return (
-    <ul className="nav nav-pills">
+    <ul   className="nav nav-tabs nav-fill">
       <li className="nav-item">
         <Link
           className={`nav-link ${active === "/dashboard" && "active"}`}

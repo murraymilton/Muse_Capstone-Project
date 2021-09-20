@@ -16,16 +16,21 @@ const HotelEditForm = ({
   return (
     <form onSubmit={handleSubmit}>
       <div className="form-group">
-        <label className="btn btn-outline-secondary btn-block m-2 text-left">
-          Image
-          <input
-            type="file"
-            name="image"
-            onChange={handleImageChange}
-            accept="image/*"
-            hidden
-          />
-        </label>
+        <div className="im_edit">
+          <label
+            id="img2"
+            className="btn btn-outline-dark btn-block m-2 text-left"
+          >
+            Image
+            <input
+              type="file"
+              name="image"
+              onChange={handleImageChange}
+              accept="image/*"
+              hidden
+            />
+          </label>
+        </div>
 
         <input
           type="text"
@@ -105,8 +110,11 @@ const HotelEditForm = ({
           }
         />
       )}
-
-      <button className="btn btn-outline-primary m-2">Save</button>
+      <div className="text-center">
+        <button id="save" className="  btn btn-outline-dark m-2 ">
+          Save
+        </button>
+      </div>
     </form>
   );
 };

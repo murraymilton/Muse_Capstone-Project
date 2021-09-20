@@ -20,7 +20,10 @@ const HotelCreateForm = ({
   return (
     <form onSubmit={handleSubmit}>
       <div className="form-group">
-        <label className="btn btn-outline-secondary btn-block m-2 text-left">
+        <label
+          id="img22"
+          className="btn btn-outline-secondary btn-block m-2 text-left"
+        >
           Image
           <input
             type="file"
@@ -99,8 +102,11 @@ const HotelCreateForm = ({
           current && current.valueOf() < moment().subtract(1, "days")
         }
       />
-
-      <button className="btn btn-outline-primary m-2">Save</button>
+      <div className="text-center">
+        <button id="save22" className="btn btn-outline-primary m-2">
+          Save
+        </button>
+      </div>
     </form>
   );
 };

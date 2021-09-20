@@ -16,11 +16,15 @@ function SearchEvents() {
     const [filteredPlaces, setFilteredPlaces] = useState([]);
     const [childClicked, setChildClicked] = useState(null);
 
+    const style ={
+        background: '#9c27b0'
+    };
+
     const [coords, setCoords] = useState({});
     const [bounds, setBounds] = useState({});
 
     const [isLoading, setIsLoading] = useState(false);
-    const [type, setType] = useState('restaurants')
+    const [type, setType] = useState('hotels')
     const [rating, setRating] = useState('')
     const [autocomplete, setAutocomplete] = useState(null)
     const onLoad = (autoC) => setAutocomplete(autoC)

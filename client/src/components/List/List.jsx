@@ -18,7 +18,7 @@ function List({places, childClicked, isLoading, type, setType, rating, setRating
 
     return (
         <div className={classes.container}>
-           <Typography variant="h4">Venues, Hotels & Events in your area</Typography>
+           <Typography variant="h4">Find Lodging & Attractions in your area</Typography>
            {isLoading ? (
                <div className={classes.loading}>
                    <CircularProgress size="5rem" />
@@ -28,8 +28,8 @@ function List({places, childClicked, isLoading, type, setType, rating, setRating
            <FormControl className={classes.formControl}>
                <InputLabel>Enter</InputLabel>
                <Select id="type" value={type} onChange={(e) => setType(e.target.value)}>
-              <MenuItem value="restaurants">Restaurants</MenuItem>
-              <MenuItem value="hotels">Hotels</MenuItem>
+              {/* <MenuItem value="restaurants">Restaurants</MenuItem> */}
+              <MenuItem value="hotels">Lodging</MenuItem>
               <MenuItem value="attractions">Attractions</MenuItem>
             </Select>
            </FormControl>

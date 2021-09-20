@@ -43,8 +43,9 @@ const HeaderNav = () => {
             <Link className="nav-link" to="/register">
               Register
             </Link>
-            <Link className="nav-link" to="/searchevents">Search Events</Link>
+            <Link className="nav-link" to="/searchevents">Muse Locator</Link>
             <Link className="nav-link" to="/hotel-listings"> Lodging Listings</Link>
+            <Link className="nav-link" to="/venuefinder">Venue Listings</Link>
           </>
         )}
       </div>

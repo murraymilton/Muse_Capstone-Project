@@ -54,7 +54,7 @@ const ViewHotel = ({ match, history }) => {
   };
   return (
     <>
-      <div className="container-fluid bg-secondary p-5 text-center">
+      <div className="container-fluid  p-5 text-center">
         <h1>{hotel.title}</h1>
       </div>
       <div className="container-fluid">
