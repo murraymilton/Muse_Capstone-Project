@@ -4,11 +4,15 @@
 .form-signin {
   background: linear-gradient(to bottom, #610094, #3f0071);
 }
-
+.navbar {
+  color: #fff;
+  font-weight: 500;
+  font-size: 15px;
+}
 #img22 {
   color: #fff;
   background-color: #610094;
-  font-size: 15px;
+  font-size: 25px;
   font-weight: 500;
   letter-spacing: 1px;
   width: 20%;
@@ -17,6 +21,14 @@
   /* border: none; */
   border-radius: 20px;
   transition: all 0.3s ease;
+}
+
+.nav-link {
+  color: #fff;
+}
+
+.nav-link:hover {
+  color: #610094;
 }
 
 #addnew {

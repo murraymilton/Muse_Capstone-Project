@@ -2,7 +2,6 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { useSelector, useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
-
 const HeaderNav = () => {
     const dispatch = useDispatch();
     const { auth } = useSelector((state) => ({ ...state }));
@@ -18,7 +17,7 @@ const HeaderNav = () => {
       };
   
     return (
-        <div className="navbar navbar-customclass navbar-expand-sm navbar-dark sticky-top d-flex justify-content-center">
+        <div  className="navbar navbar-expand-md bg-dark sticky-top d-flex justify-content-center">
         <Link className="nav-link" to="/">
           Home
         </Link>
