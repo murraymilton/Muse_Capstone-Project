@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./chat.css";
-import { ChatEngine, getOrCreateChat } from "react-chat-engine";
+import { addPerson, ChatEngine, getOrCreateChat } from "react-chat-engine";
 import axios from "axios";
 import { useSelector } from "react-redux";
 import ChatFeed from "../ChatFeed";
@@ -15,21 +15,22 @@ const Chat = () => {
   useEffect(() => {
     (async () => {
       try {
-        const { data } = await axios.put(
+        const { username } = user;
+        await axios.put(
           "https://api.chatengine.io/users/",
           {
-            username: user.username,
-            secret: user.username,
+            username,
+            secret: username,
           },
           { headers: { "PRIVATE-KEY": process.env.REACT_APP_CHAT_ENGINE_KEY } }
         );
         const authObject = {
           publicKey: process.env.REACT_APP_CHAT_ENGINE_ID,
-          userName: user.username,
-          userSecret: data.username,
+          userName: process.env.REACT_APP_CHAT_SOCIAL_CHAT_TITLE,
+          userSecret: process.env.REACT_APP_CHAT_SOCIAL_CHAT_TITLE,
         };
-        const chatObject = { title: `${user.username} chat with support` };
-        getOrCreateChat(authObject, chatObject, setChat);
+        const chatID = process.env.REACT_APP_CHAT_SOCIAL_CHAT_ID;
+        addPerson(authObject, chatID, username, setChat);
       } catch (err) {}
     })();
   }, []);
@@ -41,12 +42,12 @@ const Chat = () => {
       exit={{ opacity: 0 }}
     >
       <>
-        {chat && (
+        {user && (
           <ChatEngine
             height="100vh"
             projectID={process.env.REACT_APP_CHAT_ENGINE_ID}
-            userName={chat.admin.username}
-            userSecret={chat.admin.username}
+            userName={user.username}
+            userSecret={user.username}
             renderChatFeed={(chatAppProps) => <ChatFeed {...chatAppProps} />}
           />
         )}

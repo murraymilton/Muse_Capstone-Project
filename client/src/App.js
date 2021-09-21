@@ -20,6 +20,7 @@ import StripeCallback from "./Stripe/StripeCallback";
 import ViewHotel from "./components/Hotels/ViewHotel";
 import VenuFinder from "./components/VenueFinder/VenueFinder";
 import Chat from "./components/Chat/chat";
+import Social from "./components/Chat/social";
 
 const App = () => {
   return (
@@ -34,6 +35,7 @@ const App = () => {
         <Route exact path="/venueFinder" component={VenuFinder} />
         <Route exact path="/hotel-listings" component={HotelListings} />
         <PrivateRoute exact path="/chat" component={Chat} />
+        <PrivateRoute exact path="/social" component={Social} />
         <PrivateRoute exact path="/dashboard" component={Dashboard} />
         <PrivateRoute
           exact
