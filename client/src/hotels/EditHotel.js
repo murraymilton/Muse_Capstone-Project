@@ -76,7 +76,7 @@ const EditHotel = ({ match }) => {
   return (
     <>
       <div className="container-fluid  p-5 text-center">
-        <h2>Edit Hotel</h2>
+        <h2>Edit Events, Venues and Lodging</h2>
       </div>
       <div className="container-fluid">
         <div className="row">

@@ -57,7 +57,8 @@ const SmallCard = ({
                 </p>
                 <p className="card-text">{h.bed} bed</p>
                 <p className="card-text">
-                  Available from {new Date(h.from).toLocaleDateString()}
+                  Available from {new Date(h.from).toLocaleDateString()} Ends{" "}
+                  {new Date(h.to).toLocaleDateString()}
                 </p>
                 <div>
                   <RatingModal hotel={h} />
@@ -67,7 +68,7 @@ const SmallCard = ({
                   {showViewMoreButton && (
                     <button
                       onClick={() => history.push(`/hotel/${h._id}`)}
-                      className="btn btn-primary"
+                      className="btn btn-dark"
                     >
                       Show more
                     </button>

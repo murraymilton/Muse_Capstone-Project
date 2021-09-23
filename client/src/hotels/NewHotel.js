@@ -48,7 +48,9 @@ const NewHotel = () => {
 
     let res = await createHotel(token, hotelData);
     console.log("Your Hotel Entry Has Been Added", res);
-    toast("New hotel Added");
+    toast.success(
+      "New Event, Venue or Lodging Has Been Added To Your Inventory"
+    );
     setTimeout(() => {
       window.location.reload();
     }, 1000);
@@ -67,7 +69,7 @@ const NewHotel = () => {
   return (
     <>
       <div className="container-fluid  p-5 text-center">
-        <h2>Add Hotel</h2>
+        <h2>Add Events, Venues And Lodging</h2>
       </div>
       <div className="container-fluid">
         <div className="row">

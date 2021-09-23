@@ -76,7 +76,7 @@ const BookingCard = ({ hotel, session, orderedBy, _id }) => {
                       200
                     )}....`}</p>
                     <p className="card-text">
-                      <span className="float-rigth text-primary">
+                      <span className="float-rigth text-dark">
                         for {diffDays(hotel.from, hotel.to)}{" "}
                         {diffDays(hotel.from, hotel.to) <= 1 ? "day" : "days"}
                       </span>
@@ -88,7 +88,7 @@ const BookingCard = ({ hotel, session, orderedBy, _id }) => {
                   </>
                 )}
                 <RatingModal hotel={hotel}>
-                  <StarRatings
+                  {/* <StarRatings
                     rating={userHotelRating.star}
                     name={_id}
                     starRatedColor="orange"
@@ -98,7 +98,7 @@ const BookingCard = ({ hotel, session, orderedBy, _id }) => {
                     isSelectable={true}
                     numberOfStars={5}
                     orderedBy={orderedBy}
-                  />
+                  /> */}
                 </RatingModal>
 
                 {showModal && (
