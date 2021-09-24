@@ -28,7 +28,7 @@
 Muse is an affiliate marketing application for musicians, artists, and tourists. This application serves as a connection hub intermediary in hospitality, event managing/planning. In addition, Muse's social platform allows other Artist and Musicians to connect with other musicians and artists. As well as register for services offered by event managers and find auditions and gig opportunities in their local area.
 </p>
 
-<div id="demo"></div>
+
 
 
 
@@ -53,8 +53,6 @@ Muse is an affiliate marketing application for musicians, artists, and tourists.
 
 
 
-<!-- USAGE EXAMPLES -->
-## Demo Walkthrough
 
 
 
