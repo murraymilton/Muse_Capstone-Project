@@ -7,7 +7,7 @@
   <h3 align="center">Muse Connect - An Affiliate Marketing Site </h3>
 
   <p align="center">
-    Project I built over the course of a 10-day sprint while a student at DevCodeCamp.
+    This project was built throughout a 10-day sprint while a student at DevCodeCamp.
     <br />
    <!-- *********** -->
     <br />
