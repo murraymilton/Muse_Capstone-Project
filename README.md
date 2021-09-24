@@ -1,4 +1,4 @@
-# Muse
+<h1 align="center">Muse</h1>
 <p id="top" align="center">
   <a href="https://github.com/BA-CalderonMorales/Construction-Ecommerce-Frontend">
     <img src="https://user-images.githubusercontent.com/84526474/134690254-83fd944e-72e5-400f-ab68-1effd3d7f8f1.png" alt="Logo" width="150" height="80">
